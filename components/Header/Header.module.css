@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Brygada 1918';
+  src: url('../../src/app/Brygada1918-Medium.ttf')
+}
+
+.banner1 {
+  background-color: #462b0e;
+  font-family: 'Brygada 1918', serif;
+}
+
+.logo {
+  font-family: 'Brygada 1918', serif;
+  font-style: italic !important;
+  font-weight: 400;
+  font-size: 50px !important;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 15%;
+}
+
+.nav .li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav .li a {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Brygada 1918', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+}

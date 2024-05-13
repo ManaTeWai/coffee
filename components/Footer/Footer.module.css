@@ -1,0 +1,64 @@
+.logo {
+  font-family: 'Brygada 1918', serif;
+  font-style: italic !important;
+  font-weight: 400;
+  font-size: 50px !important;
+  color: white;
+}
+
+.footer {
+  background-color: #462b0e;
+
+  padding: 10px 15%;
+}
+
+.footer__img {
+  background-image: url(/img/bg.png);
+}
+
+.footer_menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.menu_header {
+  color: white;
+}
+
+.li{
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.link {
+  color: #814e17;
+  transition: all 300ms;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #cc7a22;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+}
+
+.copyright {
+  border-top: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding-top: 10px;
+}
+
+.copy_link {
+  color: white;
+  text-decoration: none;
+}
