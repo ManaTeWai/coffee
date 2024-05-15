@@ -1,44 +1,40 @@
-/* Общие стили */
-@import url('https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,500;1,500&display=swap');
-
 .wrapper {
-  width: 70%;
-  margin: 0 auto;
+  padding: 0 15%;
 }
 
 .banner1_1 {
   display: flex;
-  margin: auto;
-  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  margin: auto;
   padding-top: 4%;
   padding-bottom: 4%;
-  flex-wrap: wrap;
 }
 
 .banner1 {
   background: linear-gradient(to top left, #392108, #583612);
-  font-family: 'Brygada 1918', serif;
-}
 
-.banner1_img {
-  background: url(/img/bg.png);
+  font-family: 'Brygada 1918', serif;
 }
 
 .title {
-  color: #fff;
   width: 350px;
-  line-height: 50px;
+
+  color: #fff;
+
   font-family: 'Brygada 1918', serif;
-  font-style: italic;
-  font-weight: 400;
   font-size: 40px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 50px;
 }
 
 .zerno {
   position: relative;
-  left: 20px;
   bottom: 180px;
+  left: 20px;
 }
 
 .zerno img {
@@ -48,181 +44,36 @@
 
 .unit {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: -15%;
   flex-wrap: wrap;
+  justify-content: space-between;
+
+  margin-top: -15%;
 }
 
 .unit__section {
   width: 600px;
 }
 
-.unit__section__text__header {
-  width: 500px;
-}
-
 .unit__section__img {
   width: 494px;
-}
-
-.unit__section__text__header {
-  font-family: 'Brygada 1918', serif;
-  font-size: 52px;
-  font-weight: bold;
-}
-
-.unit__section__text__paragraph {
-  font-family: 'Brygada 1918', serif;
-  font-size: 42px;
-  font-weight: normal;
-  margin-top: 5%;
 }
 
 #unit_2 {
   margin-top: 15%;
 }
 
+.guests {
+  margin: 20px 0;
+}
+
 .guests__header {
-  width: 650px;
   margin: auto;
-  font-family: 'Brygada 1918', serif;
-  font-weight: bold;
-  font-size: 52px;
+
   text-align: center;
-}
 
-/* начало слайдера */
-
-.adaptivny_slayder {
-  position: relative;
-  max-width: 100%;
-  margin: 50px auto;
-}
-
-.adaptivny_slayder input[name="kadoves"] {
-  display: none;
-}
-
-.kadoves {
-  position: absolute;
-  left: 0;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  bottom: 290px;
-}
-
-.kadoves .slaid1 {
-  position: relative;
-  left: -150px;
-}
-
-.kadoves .slaid2 {
-  position: relative;
-  right: -50px;
-}
-
-.kadoves label {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  cursor: pointer;
-}
-
-.adaptivny_slayder_lasekun {
-  overflow: hidden;
-}
-
-.abusteku_deagulus {
-  display: flex;
-  width: 70%;
-  transition: all 0.5s;
-  margin: auto;
-}
-
-.abustek_deagulus .slider__unit {
-  width: 400px;
-  text-align: center;
-  margin: 0 5%;
-  flex-shrink: 1;
-}
-
-#slaid1:checked~.adaptivny_slayder_lasekun .abusteku_deagulus {
-  transform: translate(-20%);
-}
-
-#slaid2:checked~.adaptivny_slayder_lasekun .abusteku_deagulus {
-  transform: translateX(-70%);
-}
-
-.slider__unit__text__paragraph {
   font-family: 'Brygada 1918', serif;
-  font-weight: 400;
-  font-size: 35px;
-}
-
-.slider__unit__text__header {
-  font-family: 'Brygada 1918', serif;
-  font-weight: bold;
-  font-size: 32px;
-}
-
-/* конец слайдера */
-
-.sale {
-  background-color: #392108;
-}
-
-.sale .wrapper {
-  padding: 2% 0;
-}
-
-.sale__unit {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.sale__unit__text {
-  font-size: 52px;
-  color: white;
-  width: 30%;
-}
-
-.sale__unit__form {
-  width: 60%;
-}
-
-.sale__unit__form__up {
-  display: flex;
-  justify-content: space-between;
-}
-
-.sale__unit__form__up input {
-  padding: 2%;
-  border-radius: 10px;
   font-size: 36px;
-  width: 300px;
-}
-
-.sale__unit__form__down {
-  margin-top: 2%;
-  text-align: center;
-}
-
-.sale__unit__form__down input {
-  padding: 2%;
-  border-radius: 10px;
-  border: 5px solid white;
-  background-color: #754B1E;
-  font-size: 36px;
-  color: white;
-  margin-top: 2%;
-  cursor: pointer;
-  text-align: center;
-}
-
-.sale__unit__form__down input:active {
-  background-color: #4c3114;
+  font-weight: bold;
+  margin-bottom: 20px;
 }

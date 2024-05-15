@@ -1,0 +1,58 @@
+/* components/CustomSlider.module.css */
+.slider {
+	position: relative;
+	width: 100%;
+	max-width: 800px;
+	margin: auto;
+	overflow: hidden;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+}
+
+.sliderWrapper {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+	min-width: 100%;
+	box-sizing: border-box;
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.image {
+	width: 250px;
+	height: auto;
+	max-height: 400px;
+	margin-top: 20px;
+}
+
+.text {
+	margin-bottom: 20px !important;
+}
+
+.arrowLeft,
+.arrowRight {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	z-index: 10;
+}
+
+.arrowLeft {
+	left: 10px;
+}
+
+.arrowRight {
+	right: 10px;
+}

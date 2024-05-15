@@ -1,39 +1,115 @@
 @font-face {
   font-family: 'Brygada 1918';
-  src: url('../../src/app/Brygada1918-Medium.ttf')
+  src: url(../../src/app/Brygada1918.ttf);
 }
 
-.banner1 {
+.menu {
+  padding: 10px 15%;
+
   background-color: #462b0e;
-  font-family: 'Brygada 1918', serif;
 }
 
-.logo {
+.nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
   font-family: 'Brygada 1918', serif;
-  font-style: italic !important;
-  font-weight: 400;
-  font-size: 50px !important;
+  color: white;
+}
+
+.mobile_menu {
+  position: relative;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+  transition: 0.4s;
 }
 
 .nav {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap;
-  padding: 10px 15%;
-}
-
-.nav .li {
-  list-style-type: none;
+  justify-content: center;
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.nav .li a {
-  color: #fff;
-  text-decoration: none;
-  font-family: 'Brygada 1918', serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
+.li {
+  margin: 0 30px;
+}
+
+.mobile_menu_cont {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+
+  .mobile_nav {
+    flex-direction: column;
+    display: none;
+    position: absolute;
+    top: 27px;
+    right: -0px;
+    background: white;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 5;
+    list-style-type: none;
+  }
+
+  .mobile_menu_cont {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    background-color: #462b0e;
+  }
+
+  .mobile_menu_cont .logo {
+    font-family: 'Brygada 1918', serif;
+  }
+
+  .mobile_menu_cont a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .mobile_nav a {
+    color: #333;
+    text-decoration: none;
+  }
+
+  .mobile_nav.open {
+    display: block !important;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .mobile_li {
+    margin: 10px 0;
+  }
 }
