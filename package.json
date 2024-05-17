@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "stylelint": "stylelint \"**/*.css\" --fix",
-    "postinstall": "npm install --legacy-peer-deps"
+    "stylelint": "stylelint \"**/*.css\" --fix"
   },
   "dependencies": {
     "classnames": "^2.5.1",
