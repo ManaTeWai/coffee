@@ -3,22 +3,20 @@ import { FooterProps } from './Footer.Props';
 import Link from 'next/link';
 import { format } from 'date-fns'
 import Image from 'next/image';
-import { P } from '../'
+import { P, Htag } from '../'
 
 export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
 	return (
-		<>
+		<div className={styles.footer_cont}>
 			<div className={styles.sale}>
 				<div className={styles.sale__unit}>
-					<P size='medium'>Получите скидку 20% на первый заказ</P>
-					<div className={styles.sale__unit__form}>
-						<div className={styles.sale__unit__form__up}>
-							<input type="text" name="" id="" placeholder="Имя" />
-							<input type="text" name="" id="" placeholder="Телефон" />
-						</div>
-						<div className={styles.sale__unit__form__down}>
-							<input type="button" value="Получить" />
-						</div>
+					<Htag tag='h1'>Получите скидку 20% на первый заказ</Htag>
+					<div className={styles.sale__unit__form__up}>
+						<input type="text" name="" id="" placeholder="Имя" />
+						<input type="text" name="" id="" placeholder="Телефон" />
+					</div>
+					<div className={styles.sale__unit__form__down}>
+						<input type="button" value="Получить" />
 					</div>
 				</div>
 			</div>
@@ -61,6 +59,6 @@ export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
 					<Link className={styles.copy_link} href="/policy">Политика конфиденциальности</Link>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }

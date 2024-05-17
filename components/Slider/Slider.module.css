@@ -1,17 +1,17 @@
-/* components/CustomSlider.module.css */
+/* components/Slider.module.css */
 .slider {
 	position: relative;
 	width: 100%;
-	max-width: 800px;
+	height: 200px;
 	margin: auto;
 	overflow: hidden;
-	border: 1px solid #ddd;
 	border-radius: 10px;
 }
 
 .sliderWrapper {
 	display: flex;
 	transition: transform 0.5s ease-in-out;
+	height: 100%;
 }
 
 .slide {
@@ -19,40 +19,65 @@
 	box-sizing: border-box;
 	flex-shrink: 0;
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	text-align: center;
+	position: relative;
 }
 
 .image {
-	width: 250px;
-	height: auto;
-	max-height: 400px;
-	margin-top: 20px;
-}
-
-.text {
-	margin-bottom: 20px !important;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .arrowLeft,
 .arrowRight {
+	opacity: 0;
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	background-color: rgba(0, 0, 0, 0.5);
-	color: white;
-	border: none;
-	padding: 10px;
+	background-color: rgb(255, 255, 255);
+	border-radius: 50%;
+	padding: 5px;
+	color: black;
 	cursor: pointer;
 	z-index: 10;
+	transition: all 300ms;
+	display: flex;
+	justify-content: center;
+	align-items: start;
+}
+
+.arrowLeft span,
+.arrowRight span {
+	width: 18px;
+	height: 18px;
+}
+
+.slider:hover .arrowRight,
+.slider:hover .arrowLeft,
+.slider:hover .indicator {
+	opacity: 1;
 }
 
 .arrowLeft {
-	left: 10px;
+	left: 15px;
 }
 
 .arrowRight {
-	right: 10px;
+	right: 15px;
+}
+
+.indicator {
+	position: absolute;
+	opacity: 0;
+	transition: all 300ms;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: rgb(255, 255, 255);
+	color: black;
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-size: 14px;
 }

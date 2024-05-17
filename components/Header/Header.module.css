@@ -3,6 +3,10 @@
   src: url(../../src/app/Brygada1918.ttf);
 }
 
+.header {
+  margin-bottom: 20px;
+}
+
 .menu {
   padding: 10px 15%;
 

@@ -28,7 +28,7 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
 	}, []);
 
 	return (
-		<>
+		<div className={styles.header}>
 			<div className={styles.menu}>
 				<ul className={styles.nav}>
 					<li className={styles.li}><Link href="/about">О нас</Link></li>
@@ -54,6 +54,6 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
 					</ul>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }

@@ -11,6 +11,10 @@
   margin-top: 20px;
 }
 
+.footer_cont {
+  margin-top: 20px;
+}
+
 .footer {
   padding: 10px 15%;
 
@@ -82,6 +86,7 @@
 
 .sale__unit {
   display: flex;
+  flex-wrap: wrap;
   margin: auto;
   padding: 20px 15%;
   align-items: center;
@@ -89,32 +94,31 @@
   color: white;
 }
 
-.sale__unit__form {
-  width: 60%;
+.sale__unit > * {
+  width: 25%;
 }
 
 .sale__unit__form__up {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .sale__unit__form__up input {
-  width: 300px;
   padding: 2%;
 
   border-radius: 10px;
+  text-align: center;
 
   font-size: 24px;
 }
 
 .sale__unit__form__down {
-  margin-top: 2%;
 
   text-align: center;
 }
 
 .sale__unit__form__down input {
-  margin-top: 2%;
   padding: 2%;
 
   cursor: pointer;
