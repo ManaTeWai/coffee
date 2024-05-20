@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Brygada 1918';
-  src: url(../../src/app/Brygada1918.ttf);
+  src: url(../../Brygada1918.ttf);
 }
 
 .header {
@@ -61,6 +61,10 @@
 
 .mobile_menu_cont {
   display: none;
+}
+
+.logo {
+  font-family: 'Brygada 1918', serif;
 }
 
 @media (max-width: 768px) {

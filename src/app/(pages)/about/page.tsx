@@ -1,4 +1,4 @@
-import { Htag, P } from '../../../../components';
+import { Htag, P } from '../../components';
 import type { Metadata } from "next";
 import styles from '../../page.module.css';
 import Image from 'next/image';
