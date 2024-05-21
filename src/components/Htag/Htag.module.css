@@ -4,6 +4,7 @@
 
 .h1 {
   margin: 0;
+
   font-family: 'Brygada 1918', serif;
 
   font-size: 26px;
@@ -13,6 +14,7 @@
 
 .h2 {
   margin: 0;
+
   font-family: 'Brygada 1918', serif;
   font-size: 22px;
   font-weight: 500;
@@ -21,6 +23,7 @@
 
 .h3 {
   margin: 0;
+
   font-family: 'Brygada 1918', serif;
   font-size: 20px;
   font-weight: 600;

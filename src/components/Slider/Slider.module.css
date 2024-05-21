@@ -1,28 +1,34 @@
-/* components/Slider.module.css */
 .slider {
 	position: relative;
+
+	overflow: hidden;
+
 	width: 100%;
 	height: 200px;
 	margin: auto;
-	overflow: hidden;
-	border-radius: 10px;
 	margin: 20px 0;
+
+	border-radius: 10px;
 }
 
 .sliderWrapper {
 	display: flex;
-	transition: transform 0.5s ease-in-out;
+
 	height: 100%;
+
+	transition: transform 0.5s ease-in-out;
 }
 
 .slide {
-	min-width: 100%;
-	box-sizing: border-box;
-	flex-shrink: 0;
+	position: relative;
+
 	display: flex;
 	align-items: center;
+	flex-shrink: 0;
 	justify-content: center;
-	position: relative;
+
+	box-sizing: border-box;
+	min-width: 100%;
 }
 
 .image {
@@ -33,20 +39,24 @@
 
 .arrowLeft,
 .arrowRight {
-	opacity: 0;
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	background-color: rgb(255, 255, 255);
-	border-radius: 50%;
-	padding: 5px;
-	color: black;
-	cursor: pointer;
 	z-index: 10;
-	transition: all 300ms;
+	top: 50%;
+
 	display: flex;
-	justify-content: center;
 	align-items: start;
+	justify-content: center;
+
+	padding: 5px;
+
+	cursor: pointer;
+	transition: all 300ms;
+	transform: translateY(-50%);
+
+	opacity: 0;
+	color: black;
+	border-radius: 50%;
+	background-color: rgb(255 255 255);
 }
 
 .arrowLeft span,
@@ -71,14 +81,18 @@
 
 .indicator {
 	position: absolute;
-	opacity: 0;
-	transition: all 300ms;
 	bottom: 20px;
 	left: 50%;
-	transform: translateX(-50%);
-	background-color: rgb(255, 255, 255);
-	color: black;
+
 	padding: 5px 10px;
+
+	transition: all 300ms;
+	transform: translateX(-50%);
+
+	opacity: 0;
+	color: black;
 	border-radius: 5px;
+	background-color: rgb(255 255 255);
+
 	font-size: 14px;
 }

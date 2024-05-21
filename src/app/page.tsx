@@ -1,4 +1,4 @@
-import { Slider, Htag, P, CoffeeCard, CardPlaceHolder } from './components'
+import { Slider, Htag, P, CoffeeCard, CardPlaceHolder } from '@/components'
 import styles from './page.module.css'
 
 const slides = [

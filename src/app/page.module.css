@@ -2,23 +2,6 @@
   padding: 0 15%;
 }
 
-.banner1_1 {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  margin: auto;
-  padding-top: 4%;
-  padding-bottom: 4%;
-}
-
-.banner1 {
-  background: linear-gradient(to top left, #392108, #583612);
-
-  font-family: 'Brygada 1918', serif;
-}
-
 .title {
   width: 350px;
 
@@ -31,49 +14,20 @@
   line-height: 50px;
 }
 
-.zerno {
-  position: relative;
-  bottom: 180px;
-  left: 20px;
+.page_wrapper ul li{
+  margin-bottom: 10px;
+  margin-left: 20px;
 }
 
-.zerno img {
-  width: 494px;
-  height: 413px;
+.page_wrapper ol li {
+  margin-bottom: 10px;
+  margin-left: 20px;
 }
 
-.unit {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  margin-top: -15%;
+.page_wrapper h1 {
+  margin-bottom: 10px;
 }
 
-.unit__section {
-  width: 600px;
-}
-
-.unit__section__img {
-  width: 494px;
-}
-
-#unit_2 {
-  margin-top: 15%;
-}
-
-.guests {
-  margin: 20px 0;
-}
-
-.guests__header {
-  margin: auto;
-
-  text-align: center;
-
-  font-family: 'Brygada 1918', serif;
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 20px;
+.page_wrapper .list {
+  margin-top: 10px;
 }

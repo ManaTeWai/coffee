@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Htag, P } from './components';
+import { Htag, P } from '@/components';
 import styles from './not-found.module.css';
 
 export default function NotFound() {

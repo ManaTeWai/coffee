@@ -27,9 +27,9 @@
 
 .footer_menu {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: start;
   flex-wrap: wrap;
+  justify-content: space-between;
 
   padding-top: 20px;
   padding-bottom: 10px;
@@ -65,8 +65,8 @@
 .copyright {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
 
   padding-top: 10px;
 
@@ -86,11 +86,13 @@
 
 .sale__unit {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
+  justify-content: space-between;
+
   margin: auto;
   padding: 20px 15%;
-  align-items: center;
-  justify-content: space-between;
+
   color: white;
 }
 
@@ -107,8 +109,9 @@
 .sale__unit__form__up input {
   padding: 2%;
 
-  border-radius: 10px;
   text-align: center;
+
+  border-radius: 10px;
 
   font-size: 24px;
 }

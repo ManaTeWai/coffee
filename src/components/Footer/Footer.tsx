@@ -36,11 +36,11 @@ export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
 						<li className={styles.li}><P size="medium" className={styles.menu_header}>Клиентам</P></li>
 						<li className={styles.li}><Link className={styles.link} href="/event">Акции</Link></li>
 						<li className={styles.li}><Link className={styles.link} href="/bonuses">Бонусы</Link></li>
-						<li className={styles.li}><Link className={styles.link} href="/price_list">Прейскурант</Link></li>
+						<li className={styles.li}><Link className={styles.link} href="/priceList">Прейскурант</Link></li>
 					</ul>
 					<ul className={styles.menu}>
 						<li className={styles.li}><P size="medium" className={styles.menu_header}>Помощь</P></li>
-						<li className={styles.li}><Link className={styles.link} href="/zones_and_deliver">Зоны и условия доставки</Link></li>
+						<li className={styles.li}><Link className={styles.link} href="/zonesAndDeliver">Зоны и условия доставки</Link></li>
 						<li className={styles.li}><Link className={styles.link} href="/restaurants">Рестораны</Link></li>
 						<li className={styles.li}><Link className={styles.link} href="/contacts">Контакты</Link></li>
 					</ul>
