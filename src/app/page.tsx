@@ -1,5 +1,4 @@
-import { Slider, Htag, P, CoffeeCard, CardPlaceHolder } from '@/components'
-import { cards } from '@/utils/products';
+import { Slider, Htag, P, DynamicCoffeeCardLoader } from '@/components'
 import styles from './page.module.css'
 
 const slides = [
@@ -21,8 +20,7 @@ export default function Home() {
 				<div className={styles.main}>
 					<Htag tag='h1'>Наша кофейня работает с любовью для вас!</Htag>
 					<Slider slides={slides} />
-					<CoffeeCard cards={cards}/>
-					<CardPlaceHolder />
+					<DynamicCoffeeCardLoader />
 				</div>
 			</main>
 		</>

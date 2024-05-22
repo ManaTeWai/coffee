@@ -1,10 +1,11 @@
-.link {
-	text-decoration: none;
-
-	color: black;
+.imagePlaceholder {
+	width: 100%;
+	height: 200px;
+	background-color: #f0f0f0;
 }
 
 .cardContainer {
+	width: 100%;
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
