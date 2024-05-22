@@ -1,0 +1,22 @@
+.main_content {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.title {
+	display: flex;
+	flex-direction: column;
+}
+
+.price {
+	padding: 5px 10px;
+
+	color: white !important;
+	border-radius: 15px;
+	background-color: chocolate;
+}
+
+.some_desc {
+	height: 17vh;
+}

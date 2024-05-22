@@ -1,4 +1,5 @@
 import { Slider, Htag, P, CoffeeCard, CardPlaceHolder } from '@/components'
+import { cards } from '@/utils/products';
 import styles from './page.module.css'
 
 const slides = [
@@ -11,39 +12,6 @@ const slides = [
 		title: 'Капучино',
 	},
 ];
-
-const cards = [
-	{
-		imageUrl: '/img/coffe1.png',
-		title: 'Чашка кофе',
-		description: 'Очень вкусная чашка кофе',
-		prise: 100,
-	},
-	{
-		imageUrl: '/img/coffe2.png',
-		title: 'Чашка кофе',
-		description: 'Очень очень вкусная чашка кофе',
-		prise: 200,
-	},
-	{
-		imageUrl: '/img/coffe1.png',
-		title: 'Чашка кофе',
-		description: 'Очень очень очень вкусная чашка кофе',
-		prise: 300,
-	},
-	{
-		imageUrl: '/img/coffe2.png',
-		title: 'Чашка кофе',
-		description: 'Очень очень очень очень вкусная чашка кофе',
-		prise: 400,
-	},
-	{
-		imageUrl: '/img/coffe1.png',
-		title: 'Чашка кофе',
-		description: 'Очень очень очень очень очень вкусная чашка кофе',
-		prise: 500,
-	}
-]
 
 export default function Home() {
 

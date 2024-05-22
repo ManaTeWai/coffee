@@ -1,3 +1,9 @@
+.link {
+	text-decoration: none;
+
+	color: black;
+}
+
 .cardContainer {
 	display: flex;
 	align-items: center;
@@ -23,7 +29,6 @@
 	border: 1px solid #ddd;
 	border-radius: 10px;
 
-	/* align-items: center; */
 	background-color: #fff;
 	box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
 }
@@ -49,7 +54,7 @@
 .price {
 	padding: 5px 10px;
 
-	color: white;
+	color: white !important;
 	border-radius: 15px;
 	background-color: chocolate;
 }
