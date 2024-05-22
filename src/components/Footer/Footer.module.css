@@ -87,7 +87,7 @@
 .sale__unit {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap !important  ;
   justify-content: space-between;
 
   margin: auto;
@@ -97,7 +97,7 @@
 }
 
 .sale__unit > * {
-  width: 25%;
+  width: 350px;
 }
 
 .sale__unit__form__up {
@@ -117,7 +117,8 @@
 }
 
 .sale__unit__form__down {
-  text-align: right;
+  text-align: center;
+  width: 120px !important;
 }
 
 .sale__unit__form__down input {
