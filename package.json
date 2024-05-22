@@ -30,6 +30,6 @@
     "typescript": "^5"
   },
   "overrides": {
-    "stylelint-order": "6.0.4"
+    "stylelint-order": "^6.0.4"
   }
 }
