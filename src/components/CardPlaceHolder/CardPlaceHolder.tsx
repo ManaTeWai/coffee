@@ -1,7 +1,10 @@
+import { Htag } from '@/components';
+import styles from './CardPlaceHolder.module.css'
+
 export const CardPlaceHolder = () => {
 	return (
-		<>
-			<h3>Placeholder</h3>
-		</>
+		<div className={styles.placeholder}>
+			<Htag tag='h1'>Placeholder</Htag>
+		</div>
 	);
 }

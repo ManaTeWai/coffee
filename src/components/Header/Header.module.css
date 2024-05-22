@@ -19,7 +19,7 @@
   color: white;
 }
 
-.menu .logo {
+.logo {
   text-decoration: none;
 
   color: #333;
@@ -72,11 +72,7 @@
   display: none;
 }
 
-.logo {
-  font-family: 'Brygada 1918', serif;
-}
-
-@media (width <= 768px) {
+@media (width <=768px) {
   .menu {
     display: none;
   }
