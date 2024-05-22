@@ -28,5 +28,8 @@
     "stylelint-order": "^6.0.4",
     "stylelint-order-config-standard": "^0.1.3",
     "typescript": "^5"
+  },
+  "overrides": {
+    "stylelint-order": "6.0.4"
   }
 }
