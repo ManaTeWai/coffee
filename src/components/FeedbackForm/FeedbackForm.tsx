@@ -45,6 +45,9 @@ export const FeedbackForm = (): JSX.Element => {
 				<input
 					className={styles.input}
 					type="text"
+					autoComplete='on'
+					name='name'
+					id='2'
 					placeholder="Ваше имя"
 					value={name}
 					onChange={(e) => setName(e.target.value)}
@@ -52,6 +55,9 @@ export const FeedbackForm = (): JSX.Element => {
 				<input
 					className={styles.input}
 					type="text"
+					id='3'
+					name='subject'
+					autoComplete='off'
 					placeholder='Тема сообщения'
 					value={subject}
 					onChange={(e) => setSubject(e.target.value)}
@@ -60,6 +66,8 @@ export const FeedbackForm = (): JSX.Element => {
 					className={styles.input}
 					placeholder="Текст сообщения"
 					name="MessageBody"
+					rows={5}
+					autoComplete='off'
 					id="1"
 					value={message}
 					onChange={(e) => setMessage(e.target.value)}

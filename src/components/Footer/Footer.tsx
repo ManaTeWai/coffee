@@ -12,8 +12,8 @@ export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
 				<div className={styles.sale__unit}>
 					<Htag tag='h1'>Получите скидку 20% на первый заказ</Htag>
 					<div className={styles.sale__unit__form__up}>
-						<input type="text" name="" id="" placeholder="Имя" />
-						<input type="text" name="" id="" placeholder="Телефон" />
+						<input type="text" name="name" id="btnName" autoComplete='on' placeholder="Имя" />
+						<input type="text" name="pass" id="btnPass" autoComplete='on' placeholder="88005553535" pattern="8[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"/>
 					</div>
 					<div className={styles.sale__unit__form__down}>
 						<input type="button" value="Получить" />

@@ -135,6 +135,14 @@
   font-size: 24px;
 }
 
+.sale__unit__form__up input:valid {
+  background-color: palegreen;
+}
+
+.sale__unit__form__up input:invalid {
+  background-color: lightpink;
+}
+
 .sale__unit__form__down input:active {
   background-color: #4c3114;
 }
