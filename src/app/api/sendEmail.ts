@@ -8,6 +8,9 @@ const { USER, PASSWORD } = process.env;
 
 const transporter = nodemailer.createTransport({
 	service: 'Gmail',
+	host: 'smtp.gmail.com',
+	port: 857,
+	secure: false,
 	auth: {
 		user: USER,
 		pass: PASSWORD,
@@ -28,10 +31,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 		transporter.sendMail(mailOptions, (error, info) => {
 			if (error) {
 				console.log(error);
-				return res.status(500).json({ error: 'Error sending email' });
+				return res.status(500).json({ error: 'Ошибка отправки сообщения' });
 			} else {
 				console.log('Email sent: ' + info.response);
-				return res.status(200).json({ message: 'Email sent successfully' });
+				return res.status(200).json({ message: 'Сообщение отправлено успешно' });
 			}
 		});
 	} else {
