@@ -6,3 +6,4 @@ export * from './P/P';
 export * from './CoffeeCard/CoffeeCard';
 export * from './DynamicCoffeeCardLoader/DynamicCoffeeCardLoader'
 export * from './MailLink/MailLink';
+export * from './FeedbackForm/FeedbackForm';

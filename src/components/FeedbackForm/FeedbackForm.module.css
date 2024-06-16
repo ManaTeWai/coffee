@@ -1,0 +1,39 @@
+.container {
+	width: 400px;
+	margin: auto;
+	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+
+.input {
+	padding: 1%;
+
+	text-align: center;
+
+	border-radius: 10px;
+
+	font-size: 24px;
+
+	margin-bottom: 10px;
+	width: 100%;
+	min-width: 100%;
+	max-width: 100%;
+}
+
+.submit_btn {
+	width: 150px;
+	padding: 1%;
+	text-align: center;
+	border-radius: 10px;
+	font-size: 24px;
+	cursor: pointer;
+	align-self: flex-end;
+	transition: all 300ms;
+}
+
+.submit_btn:hover {
+	background-color: #754B1E;
+	color: white;
+}
