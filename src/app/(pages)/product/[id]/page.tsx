@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { cards } from '@/utils/products';
+import { products } from '@/utils/products';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import styles from './page.module.css';
@@ -8,13 +8,13 @@ import { Htag, P } from '@/components';
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
 	const productId = parseInt(params.id, 10);
 
-	if (isNaN(productId) || productId < 0 || productId >= cards.length) {
+	if (isNaN(productId) || productId < 0 || productId >= products.length) {
 		return {
 			title: 'Товар не найден',
 		};
 	}
 
-	const product = cards[productId];
+	const product = products[productId];
 
 	return {
 		title: product.title,
@@ -31,11 +31,11 @@ type ProductPageProps = {
 export default function ProductPage({ params }: ProductPageProps) {
 	const productId = parseInt(params.id, 10);
 
-	if (isNaN(productId) || productId < 0 || productId >= cards.length) {
+	if (isNaN(productId) || productId < 0 || productId >= products.length) {
 		notFound();
 	}
 
-	const product = cards[productId];
+	const product = products[productId];
 
 	return (
 		<div className={styles.page_wrapper}>
