@@ -3,6 +3,11 @@
 import React, { useState } from 'react';
 import { Htag } from '../';
 import styles from './FeedbackForm.module.css';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import { styled } from '@mui/material/styles';
+import { purple } from '@mui/material/colors';
+import useStyles from './TextStyles';
 
 export const FeedbackForm = (): JSX.Element => {
 	const [name, setName] = useState('');
@@ -27,6 +32,9 @@ export const FeedbackForm = (): JSX.Element => {
 				const data = await res.json();
 				setSuccess(data.message);
 				setError('');
+				setName('');
+				setSubject('');
+				setMessage('');
 			} else {
 				const errorData = await res.json();
 				setError(errorData.error);
@@ -38,41 +46,54 @@ export const FeedbackForm = (): JSX.Element => {
 		}
 	};
 
+	const classes = useStyles();
+
 	return (
 		<div className={styles.container}>
-			<Htag tag='h1'>FeedbackForm</Htag>
+			<Htag tag='h1'>Форма обратной связи</Htag>
 			<form onSubmit={handleSubmit}>
-				<input
-					className={styles.input}
+				<TextField
+					id='1'
+					fullWidth
+					label="Ваше Имя"
+					variant="filled"
+					className={classes.root}
 					type="text"
 					autoComplete='on'
 					name='name'
-					id='2'
 					placeholder="Ваше имя"
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 				/>
-				<input
-					className={styles.input}
+				<TextField
+					id='2'
+					fullWidth
+					label="Тема сообщения"
+					variant="filled"
+					className={classes.root}
 					type="text"
-					id='3'
 					name='subject'
 					autoComplete='off'
 					placeholder='Тема сообщения'
 					value={subject}
 					onChange={(e) => setSubject(e.target.value)}
 				/>
-				<textarea
-					className={styles.input}
+				<TextField
+					id='3'
+					fullWidth
+					label="Текст сообщения"
+					multiline
+					variant="filled"
+					className={classes.root}
 					placeholder="Текст сообщения"
 					name="MessageBody"
 					rows={5}
 					autoComplete='off'
-					id="1"
+					
 					value={message}
 					onChange={(e) => setMessage(e.target.value)}
 				/>
-				<input className={styles.submit_btn} type="submit" value="Отправить" />
+				<button className={styles.submit_btn} type="submit" value="Отправить">Отправить</button>
 			</form>
 			{error && <p className={styles.error}>{error}</p>}
 			{success && <p className={styles.success}>{success}</p>}

@@ -25,7 +25,7 @@ export async function POST(req: Request) {
 		const mailOptions = {
 			from: USER,
 			to: USER,
-			subject: `Feedback from ${name}: ${subject}`,
+			subject: `Обратная связь от: ${name} Тема: ${subject}`,
 			text: message,
 		};
 
