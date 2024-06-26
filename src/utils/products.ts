@@ -1,4 +1,11 @@
-export const cards = [
+export type Card = {
+	imageUrl: string;
+	title: string;
+	description: string;
+	price: number;
+};
+
+export const products: Card[] = [
 	{
 		imageUrl: '/img/coffe1.png',
 		title: 'Чашка кофе',

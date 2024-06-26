@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { CoffeeCard, Htag, P } from '@/components';
-import { cards as initialCards } from '@/utils/products';
+import { products as initialCards } from '@/utils/products';
 import styles from './DynamicCoffeeCardLoader.module.css';
 
 type Card = {

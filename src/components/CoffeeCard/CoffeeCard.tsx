@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Htag, P } from '../';
+import { Htag, P } from '..';
 import styles from './CoffeeCard.module.css';
 import Image from 'next/image';
 
