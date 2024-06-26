@@ -17,6 +17,21 @@ const useStyles = makeStyles({
 			},
 		},
 	},
+	slider: {
+		color: '#754B1E',
+		'& .MuiSlider-thumb': {
+			backgroundColor: '#754B1E',
+			'&:hover, &.Mui-focusVisible, &.Mui-active': {
+				boxShadow: '0 0 0 4px rgba(117, 75, 30, 0.42)',
+			},
+		},
+		'& .MuiSlider-track': {
+			backgroundColor: '#754B1E',
+		},
+		'& .MuiSlider-rail': {
+			backgroundColor: '#D3D3D3',
+		},
+	},
 });
 
 export default useStyles;

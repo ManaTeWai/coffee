@@ -4,10 +4,7 @@ import React, { useState } from 'react';
 import { Htag } from '../';
 import styles from './FeedbackForm.module.css';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
-import { purple } from '@mui/material/colors';
-import useStyles from './TextStyles';
+import useStyles from '@/utils/TextStyles';
 
 export const FeedbackForm = (): JSX.Element => {
 	const [name, setName] = useState('');

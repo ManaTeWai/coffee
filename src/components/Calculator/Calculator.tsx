@@ -5,12 +5,14 @@ import { Htag, P } from '..';
 import { useState } from 'react';
 import Slider from '@mui/material/Slider';
 import Image from 'next/image';
+import useStyles from '@/utils/TextStyles';
 
 export const Calculator = () => {
 	const [income, setIncome] = useState(100000);
 
 	const [value, setValue] = useState<number>(3600000);
 
+	const classes = useStyles(); 
 
 	const handleSliderChange = (event: Event, newValue: number | number[]) => {
 		setValue(newValue as number);
@@ -31,6 +33,7 @@ export const Calculator = () => {
 					step={100000}
 					min={3600000}
 					max={10000000}
+					className={classes.slider}
 				/>
 				<div className={styles.slider_interval}>
 					<P size='small'>3 600 000</P>
