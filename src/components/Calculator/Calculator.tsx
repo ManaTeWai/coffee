@@ -23,7 +23,7 @@ const StyledSlider = styled(Slider)(({ theme }) => ({
 	},
 }));
 
-const Calculator = () => {
+export const Calculator = (): JSX.Element => {
 	const [income, setIncome] = useState<number>(100000);
 	const [value, setValue] = useState<number>(3600000);
 
@@ -61,5 +61,3 @@ const Calculator = () => {
 		</div>
 	);
 }
-
-export default Calculator;
