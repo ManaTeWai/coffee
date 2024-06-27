@@ -1,4 +1,5 @@
-// Импортируем стили из Calculator.module.css
+'use client'
+
 import styles from './Calculator.module.css';
 import { styled } from '@mui/system';
 import { Htag, P } from '..';
@@ -6,7 +7,6 @@ import { useState } from 'react';
 import Slider from '@mui/material/Slider';
 import Image from 'next/image';
 
-// Определяем стилизованный Slider с помощью @mui/system
 const StyledSlider = styled(Slider)(({ theme }) => ({
 	color: '#754B1E',
 	'& .MuiSlider-thumb': {
