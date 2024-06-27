@@ -39,6 +39,7 @@ export const Calculator = () => {
 					<P size='small'>3 600 000</P>
 					<P size='small'>10 000 000</P>
 				</div>
+				<Htag tag='h1'>тег</Htag>
 			</div>
 			<div className={styles.image_cont}>
 				<Image width={300} height={500} alt='Фото' src='/img/banner-img.jpeg' className={styles.banner}/>
