@@ -1,6 +1,6 @@
-import { makeStyles } from '@mui/styles';
+import { styled } from '@mui/system';
 
-const useStyles = makeStyles({
+const useStyles = () => ({
 	root: {
 		marginBottom: '10px',
 		'& .MuiFilledInput-root': {
@@ -34,4 +34,6 @@ const useStyles = makeStyles({
 	},
 });
 
-export default useStyles;
+const StyledComponent = styled('div')(useStyles);
+
+export default StyledComponent;

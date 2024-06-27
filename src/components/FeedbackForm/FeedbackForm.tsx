@@ -1,10 +1,28 @@
-'use client'
+'use client';
 
 import React, { useState } from 'react';
 import { Htag } from '../';
 import styles from './FeedbackForm.module.css';
 import TextField from '@mui/material/TextField';
-import useStyles from '@/utils/TextStyles';
+import { styled } from '@mui/system';
+
+
+const StyledTextField = styled(TextField)(({ theme }) => ({
+	marginBottom: '10px',
+	'& .MuiFilledInput-root': {
+		'&:before': {
+			borderBottomColor: 'rgba(0, 0, 0, 0.42)',
+		},
+		'&:after': {
+			borderBottomColor: '#754B1E',
+		},
+	},
+	'& .MuiInputLabel-root': {
+		'&.Mui-focused': {
+			color: '#754B1E',
+		},
+	},
+}));
 
 export const FeedbackForm = (): JSX.Element => {
 	const [name, setName] = useState('');
@@ -43,18 +61,16 @@ export const FeedbackForm = (): JSX.Element => {
 		}
 	};
 
-	const classes = useStyles();
-
 	return (
 		<div className={styles.container}>
 			<Htag tag='h1'>Форма обратной связи</Htag>
 			<form onSubmit={handleSubmit}>
-				<TextField
+				{/* Use StyledTextField instead of TextField */}
+				<StyledTextField
 					id='1'
 					fullWidth
 					label="Ваше Имя"
 					variant="filled"
-					className={classes.root}
 					type="text"
 					autoComplete='on'
 					name='name'
@@ -62,12 +78,11 @@ export const FeedbackForm = (): JSX.Element => {
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 				/>
-				<TextField
+				<StyledTextField
 					id='2'
 					fullWidth
 					label="Тема сообщения"
 					variant="filled"
-					className={classes.root}
 					type="text"
 					name='subject'
 					autoComplete='off'
@@ -75,18 +90,16 @@ export const FeedbackForm = (): JSX.Element => {
 					value={subject}
 					onChange={(e) => setSubject(e.target.value)}
 				/>
-				<TextField
+				<StyledTextField
 					id='3'
 					fullWidth
 					label="Текст сообщения"
 					multiline
 					variant="filled"
-					className={classes.root}
 					placeholder="Текст сообщения"
 					name="MessageBody"
 					rows={5}
 					autoComplete='off'
-					
 					value={message}
 					onChange={(e) => setMessage(e.target.value)}
 				/>
