@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Franchising() {
 	return (
 		<div className={styles.page_wrapper}>
-			<Htag tag='h1'>Откройте свой &quot;CoffeeTime&quot; и зарабатывайте</Htag>
+			<Htag className={styles.main_title} tag='h1'>Откройте свой &quot;CoffeeTime&quot; <br/>и зарабатывайте</Htag>
 
 			<Calculator />
 		</div>

@@ -31,3 +31,8 @@
 .page_wrapper .list {
   margin-top: 10px;
 }
+
+.main_title {
+  font-size: 50px !important;
+  line-height: 50px !important;
+}
