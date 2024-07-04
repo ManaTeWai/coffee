@@ -65,7 +65,6 @@ export const FeedbackForm = (): JSX.Element => {
 		<div className={styles.container}>
 			<Htag tag='h1'>Форма обратной связи</Htag>
 			<form onSubmit={handleSubmit}>
-				{/* Use StyledTextField instead of TextField */}
 				<StyledTextField
 					id='1'
 					fullWidth

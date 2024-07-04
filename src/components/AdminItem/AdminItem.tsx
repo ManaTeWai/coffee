@@ -6,10 +6,29 @@ import { Htag, P } from '..';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Card } from '../../utils/products';
+import TextField from '@mui/material/TextField';
+import { styled } from '@mui/system';
 
 type CardsProps = {
 	cards: Card[];
 };
+
+const StyledTextField = styled(TextField)(({ theme }) => ({
+	marginBottom: '10px',
+	'& .MuiFilledInput-root': {
+		'&:before': {
+			borderBottomColor: 'rgba(0, 0, 0, 0.42)',
+		},
+		'&:after': {
+			borderBottomColor: '#754B1E',
+		},
+	},
+	'& .MuiInputLabel-root': {
+		'&.Mui-focused': {
+			color: '#754B1E',
+		},
+	},
+}));
 
 export const AdminItem = ({ cards, ...props }: CardsProps): JSX.Element => {
 	const [editingIndex, setEditingIndex] = useState<number | null>(null);
@@ -42,7 +61,7 @@ export const AdminItem = ({ cards, ...props }: CardsProps): JSX.Element => {
 				});
 
 				if (res.ok) {
-					cards[editingIndex] = editForm; // Локальное обновление для отображения
+					cards[editingIndex] = editForm;
 					setEditingIndex(null);
 				} else {
 					console.error('Ошибка при обновлении карточки');
@@ -76,41 +95,62 @@ export const AdminItem = ({ cards, ...props }: CardsProps): JSX.Element => {
 			))}
 
 			{editingIndex !== null && (
-				<div className={styles.modal}>
-					<div className={styles.modalContent}>
-						<h2>Редактировать товар</h2>
-						<input
-							type="text"
-							name="imageUrl"
-							value={editForm.imageUrl}
-							onChange={handleFormChange}
-							placeholder="URL изображения"
-						/>
-						<input
-							type="text"
-							name="title"
-							value={editForm.title}
-							onChange={handleFormChange}
-							placeholder="Название товара"
-						/>
-						<textarea
-							name="description"
-							value={editForm.description}
-							onChange={handleFormChange}
-							placeholder="Описание товара"
-						/>
-						<input
-							type="number"
-							name="price"
-							value={editForm.price}
-							onChange={handleFormChange}
-							placeholder="Цена товара"
-						/>
-						<button onClick={handleSaveClick}>Сохранить</button>
-						<button onClick={() => setEditingIndex(null)}>Отмена</button>
+				<div className={styles.modal_overlay} onClick={(e) => {
+					if (e.target === e.currentTarget) {
+						setEditingIndex(null);
+					}
+				}}>
+					<div className={styles.modal}>
+						<div className={styles.modalContent}>
+							<Htag tag='h2'>Редактировать товар</Htag>
+							<StyledTextField
+								fullWidth
+								variant="filled"
+								type="text"
+								name="imageUrl"
+								label="URL изображения"
+								value={editForm.imageUrl}
+								onChange={handleFormChange}
+								placeholder="URL изображения"
+							/>
+							<StyledTextField
+								fullWidth
+								variant="filled"
+								type="text"
+								name="title"
+								label="Название товара"
+								value={editForm.title}
+								onChange={handleFormChange}
+								placeholder="Название товара"
+							/>
+							<StyledTextField
+								fullWidth
+								variant="filled"
+								multiline
+								label="Описание товара"
+								name="description"
+								value={editForm.description}
+								onChange={handleFormChange}
+								placeholder="Описание товара"
+							/>
+							<StyledTextField
+								fullWidth
+								variant="filled"
+								type="number"
+								name="price"
+								value={editForm.price}
+								onChange={handleFormChange}
+								placeholder="Цена товара"
+							/>
+							<div className={styles.btns}>
+								<button onClick={handleSaveClick}>Сохранить</button>
+								<button onClick={() => setEditingIndex(null)}>Отмена</button>
+							</div>
+						</div>
 					</div>
 				</div>
-			)}
-		</div>
+			)
+			}
+		</div >
 	);
 }

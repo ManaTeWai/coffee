@@ -33,3 +33,47 @@
 .ml {
 	margin-left: 20px;
 }
+
+.radiogroup {
+	margin-bottom: 20px;
+}
+
+.radioflex {
+	display: flex;
+}
+
+.mb_0 {
+	margin-bottom: 0;
+}
+
+.b {
+	font-weight: bold;
+}
+
+.submit_btn {
+	width: 150px;
+	padding: 1%;
+	text-align: center;
+	border-radius: 10px;
+	font-size: 24px;
+	cursor: pointer;
+	align-self: flex-end;
+	transition: all 300ms;
+	margin: auto;
+
+	border: #754B1E 1px solid;
+	color: #754B1E;
+}
+
+.submit_btn:hover {
+	background-color: #754B1E;
+	color: white;
+}
+
+.form {
+	width: 100%;
+}
+
+.mb_1 {
+	margin-bottom: 20px;
+}

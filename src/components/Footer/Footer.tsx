@@ -1,24 +1,71 @@
+'use client'
+
 import styles from './Footer.module.css';
 import { FooterProps } from './Footer.Props';
 import Link from 'next/link';
 import { format } from 'date-fns'
 import Image from 'next/image';
 import { P, Htag } from '../'
+import TextField from '@mui/material/TextField';
+import { color, styled } from '@mui/system';
+
+const StyledTextField = styled(TextField)(({ theme }) => ({
+	marginBottom: '10px',
+	'& .MuiFilledInput-root': {
+		color: 'white',
+		'&:before': {
+			borderBottomColor: 'rgba(255, 255, 255, 0.42)',
+		},
+		'&:after': {
+			borderBottomColor: 'white',
+		},
+		'&:hover': {
+			color: 'white',
+			borderBottomColor: 'white'
+		},
+	},
+	'& .MuiInputLabel-root': {
+		color: 'white',
+		'&.Mui-focused': {
+			color: 'white',
+		},
+	}
+}));
 
 export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
+
 	return (
 		<div className={styles.footer_cont}>
 			<div className={styles.sale}>
-				<div className={styles.sale__unit}>
+				<form className={styles.sale__unit}>
 					<Htag tag='h1'>Получите скидку 20% на первый заказ</Htag>
-					<div className={styles.sale__unit__form__up}>
-						<input type="text" name="name" id="btnName" autoComplete='on' placeholder="Имя" />
-						<input type="text" name="pass" id="btnPass" autoComplete='on' placeholder="88005553535" pattern="8[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"/>
+					<div className={styles.form}>
+						<StyledTextField
+							id='1'
+							fullWidth
+							label="Имя"
+							variant="filled"
+							type="text"
+							autoComplete='on'
+							name='name'
+							placeholder="Максим"
+						/>
+						<StyledTextField
+							id='1'
+							fullWidth
+							label="Телефон"
+							variant="filled"
+							type="text"
+							autoComplete='on'
+							name='phone'
+							placeholder="88005553535"
+							inputProps={{
+								pattern: "8[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"
+							}}
+						/>
 					</div>
-					<div className={styles.sale__unit__form__down}>
-						<input type="button" value="Получить" />
-					</div>
-				</div>
+					<button className={styles.submit_btn} type="submit" value="Отправить">Отправить</button>
+				</form>
 			</div>
 			<div className={styles.footer}>
 				<div className={styles.footerLogo}>
