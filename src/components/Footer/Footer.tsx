@@ -5,9 +5,11 @@ import { FooterProps } from './Footer.Props';
 import Link from 'next/link';
 import { format } from 'date-fns'
 import Image from 'next/image';
-import { P, Htag } from '../'
+import { P, Htag, Button } from '../'
 import TextField from '@mui/material/TextField';
-import { color, styled } from '@mui/system';
+import { styled } from '@mui/system';
+import InputMask from 'react-input-mask';
+import { useState } from 'react';
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
 	marginBottom: '10px',
@@ -33,6 +35,7 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
 }));
 
 export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
+	const [phoneNumber, setPhoneNumber] = useState('');
 
 	return (
 		<div className={styles.footer_cont}>
@@ -50,21 +53,31 @@ export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
 							name='name'
 							placeholder="Максим"
 						/>
-						<StyledTextField
-							id='1'
-							fullWidth
-							label="Телефон"
-							variant="filled"
-							type="text"
-							autoComplete='on'
-							name='phone'
-							placeholder="88005553535"
-							inputProps={{
-								pattern: "8[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"
-							}}
-						/>
+						<InputMask
+							mask="+7 (999) 999-99-99"
+							value={phoneNumber}
+							onChange={(e) => setPhoneNumber(e.target.value)}
+						>
+							{(inputProps: React.ComponentProps<typeof TextField>) => (
+								<StyledTextField
+									{...inputProps}
+									id='1'
+									fullWidth
+									label="Телефон"
+									variant="filled"
+									type="text"
+									autoComplete='on'
+									name='phone'
+									placeholder="+7 (___) ___-__-__"
+									inputProps={{
+										pattern: "8[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"
+									}}
+								/>
+							)}
+						</InputMask>
+
 					</div>
-					<button className={styles.submit_btn} type="submit" value="Отправить">Отправить</button>
+					<Button appearance='primary' type="submit" value="Отправить">Отправить</Button>
 				</form>
 			</div>
 			<div className={styles.footer}>

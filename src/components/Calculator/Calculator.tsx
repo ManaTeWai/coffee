@@ -2,7 +2,7 @@
 
 import styles from './Calculator.module.css';
 import { styled } from '@mui/system';
-import { Htag, P } from '..';
+import { Htag, P, Button } from '..';
 import { useState, useEffect } from 'react';
 import Slider from '@mui/material/Slider';
 import Radio from '@mui/material/Radio';
@@ -176,7 +176,7 @@ export const Calculator = (): JSX.Element => {
 							/>
 						</div>
 					</RadioGroup>
-					<button className={styles.submit_btn} type="submit" value="Отправить">Отправить</button>
+					<Button appearance='primary' type="submit" value="Отправить">Отправить</Button>
 				</FormControl>
 			</div>
 			<div className={styles.image_cont}>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Htag } from '../';
+import { Htag, Button, P } from '../';
 import styles from './FeedbackForm.module.css';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/system';
@@ -102,10 +102,10 @@ export const FeedbackForm = (): JSX.Element => {
 					value={message}
 					onChange={(e) => setMessage(e.target.value)}
 				/>
-				<button className={styles.submit_btn} type="submit" value="Отправить">Отправить</button>
+				<Button appearance='primary' type="submit" value="Отправить">Отправить</Button>
 			</form>
-			{error && <p className={styles.error}>{error}</p>}
-			{success && <p className={styles.success}>{success}</p>}
+			{error && <P size='medium' className={styles.error}>{error}</P>}
+			{success && <P size='medium' className={styles.success}>{success}</P>}
 		</div>
 	);
 };

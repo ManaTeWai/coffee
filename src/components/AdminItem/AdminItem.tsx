@@ -2,7 +2,7 @@
 
 import styles from './AdminItem.module.css';
 import Image from 'next/image';
-import { Htag, P } from '..';
+import { Htag, P, Button } from '..';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Card } from '../../utils/products';
@@ -88,8 +88,8 @@ export const AdminItem = ({ cards, ...props }: CardsProps): JSX.Element => {
 						<P size='large'>Цена: <span className={styles.price}>{card.price} РУБ.</span></P>
 					</div>
 					<div className={styles.btns}>
-						<button className={styles.btn}>Удалить</button>
-						<button className={styles.btn} onClick={() => handleEditClick(index)}>Редактировать</button>
+						<Button appearance='primary'>Удалить</Button>
+						<Button appearance='primary' onClick={() => handleEditClick(index)}>Редактировать</Button>
 					</div>
 				</div>
 			))}
@@ -143,8 +143,8 @@ export const AdminItem = ({ cards, ...props }: CardsProps): JSX.Element => {
 								placeholder="Цена товара"
 							/>
 							<div className={styles.btns}>
-								<button onClick={handleSaveClick}>Сохранить</button>
-								<button onClick={() => setEditingIndex(null)}>Отмена</button>
+								<Button appearance='primary' onClick={handleSaveClick}>Сохранить</Button>
+								<Button appearance='primary' onClick={() => setEditingIndex(null)}>Отмена</Button>
 							</div>
 						</div>
 					</div>

@@ -9,3 +9,4 @@ export * from './MailLink/MailLink';
 export * from './FeedbackForm/FeedbackForm';
 export * from './AdminItem/AdminItem';
 export * from './Calculator/Calculator';
+export * from './Button/Button';
