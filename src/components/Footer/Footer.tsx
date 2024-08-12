@@ -8,7 +8,6 @@ import Image from 'next/image';
 import { P, Htag, Button } from '../'
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/system';
-import { useState } from 'react';
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
 	marginBottom: '10px',
@@ -34,7 +33,6 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
 }));
 
 export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
-	const [phoneNumber, setPhoneNumber] = useState('');
 
 	return (
 		<div className={styles.footer_cont}>
@@ -60,7 +58,6 @@ export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
 							type="text"
 							name="phoneNumber"
 							autoComplete="off"
-							value={phoneNumber}
 							placeholder="+7 (___) ___-__-__"
 						/>
 					</div>
