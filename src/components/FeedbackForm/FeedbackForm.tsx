@@ -1,36 +1,10 @@
 'use client';
 
-// @ts-nocheck
-
 import React, { useState } from 'react';
 import { Htag, Button, P } from '../';
 import styles from './FeedbackForm.module.css';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/system';
-import MaskedInput from 'react-text-mask';
-import createNumberMask from 'text-mask-addons/dist/createNumberMask';
-
-const phoneNumberMask = [
-	'+',
-	'7',
-	' ',
-	'(',
-	/\d/,
-	/\d/,
-	/\d/,
-	')',
-	' ',
-	/\d/,
-	/\d/,
-	/\d/,
-	'-',
-	/\d/,
-	/\d/,
-	'-',
-	/\d/,
-	/\d/,
-];
-
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
 	marginBottom: '10px',
@@ -104,28 +78,17 @@ export const FeedbackForm = (): JSX.Element => {
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 				/>
-
-				<MaskedInput
-					mask={phoneNumberMask}
+				<StyledTextField
+					id="1"
+					fullWidth
+					label="Номер телефона"
+					variant="filled"
+					type="text"
+					name="phoneNumber"
+					autoComplete="off"
 					value={phoneNumber}
-					onChange={(e) => setPhoneNumber(e.target.value)}
-					render={(ref, props) => (
-						<StyledTextField
-							{...props}
-							inputRef={ref}
-							id="1"
-							fullWidth
-							label="Номер телефона"
-							variant="filled"
-							type="text"
-							name="phoneNumber"
-							autoComplete="off"
-							value={phoneNumber}
-							placeholder="+7 (___) ___-__-__"
-						/>
-					)}
+					placeholder="+7 (___) ___-__-__"
 				/>
-
 				<StyledTextField
 					id='2'
 					fullWidth
