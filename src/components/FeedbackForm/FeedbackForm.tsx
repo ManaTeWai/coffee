@@ -1,10 +1,12 @@
 'use client';
 
+// @ts-nocheck
 import React, { useState } from 'react';
 import { Htag, Button, P } from '../';
 import styles from './FeedbackForm.module.css';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/system';
+import InputMask from 'react-input-mask';
 
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
@@ -26,10 +28,31 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
 
 export const FeedbackForm = (): JSX.Element => {
 	const [name, setName] = useState('');
+	const [phoneNumber, setPhoneNumber] = useState('');
 	const [subject, setSubject] = useState('');
 	const [message, setMessage] = useState('');
 	const [error, setError] = useState('');
 	const [success, setSuccess] = useState('');
+
+	const CustomTextField = (props: any) => {
+		return (
+			<InputMask {...props}>
+				{(inputProps: any) =>
+					<StyledTextField
+						{...inputProps}
+						id='4'
+						fullWidth
+						label="Номер телефона"
+						variant="filled"
+						type="text"
+						name='phoneNumber'
+						autoComplete='off'
+						value={phoneNumber}
+						placeholder="+7 (___) ___-__-__"
+					/>}
+			</InputMask>
+		);
+	};
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -40,7 +63,7 @@ export const FeedbackForm = (): JSX.Element => {
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify({ name, subject, message }),
+				body: JSON.stringify({ name, phoneNumber, subject, message }),
 			});
 
 			if (res.ok) {
@@ -48,6 +71,7 @@ export const FeedbackForm = (): JSX.Element => {
 				setSuccess(data.message);
 				setError('');
 				setName('');
+				setPhoneNumber('');
 				setSubject('');
 				setMessage('');
 			} else {
@@ -68,7 +92,7 @@ export const FeedbackForm = (): JSX.Element => {
 				<StyledTextField
 					id='1'
 					fullWidth
-					label="Ваше Имя"
+					label="Ваше имя"
 					variant="filled"
 					type="text"
 					autoComplete='on'
@@ -77,6 +101,26 @@ export const FeedbackForm = (): JSX.Element => {
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 				/>
+				<InputMask
+					mask="+7 (999) 999-99-99"
+					value={phoneNumber}
+					onChange={(e) => setPhoneNumber(e.target.value)}
+				>
+					{(inputProps: React.ComponentProps<typeof TextField>) => (
+						<StyledTextField
+							{...inputProps}
+							id='4'
+							fullWidth
+							label="Номер телефона"
+							variant="filled"
+							type="text"
+							name='phoneNumber'
+							autoComplete='off'
+							value={phoneNumber}
+							placeholder="+7 (___) ___-__-__"
+						/>
+					)}
+				</InputMask>
 				<StyledTextField
 					id='2'
 					fullWidth

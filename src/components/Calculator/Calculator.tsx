@@ -50,11 +50,16 @@ const CustomFormLabel = styled(FormLabel)(({ theme }) => ({
 }));
 
 export const Calculator = (): JSX.Element => {
+
+	const full = 18000000;
+	const notfull = 14000000;
+
 	const [income, setIncome] = useState<number>(585180);
 	const [value, setValue] = useState<number>(3600000);
 	const [value2, setValue2] = useState<number>(400000);
-	const [rent, setRent] = useState<number>(14);
+	const [rent, setRent] = useState<number>(15);
 	const [payback, setPayback] = useState<number>(32);
+	const [investment, setInvestment] = useState<number>(full);
 
 	const calculateIncome = (value: number, value2: number) => {
 		return 0.2125 * value - 0.4494 * value2 - 60;
@@ -75,9 +80,9 @@ export const Calculator = (): JSX.Element => {
 		setIncome(calculateIncome(newValue as number, value2));
 	};
 
-	const full = 18000000;
-
-	const notfull = 14000000;
+	const handleInvestmentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setInvestment(Number(event.target.value));
+	};
 
 
 
@@ -87,6 +92,7 @@ export const Calculator = (): JSX.Element => {
 				<Htag tag='h1' className={styles.big_header}>
 					От {income.toLocaleString('ru-RU')} руб.
 				</Htag>
+
 				<div className={styles.ml}>
 					<P size='large'>Товарооборот в месяц, руб.</P>
 					<Htag tag="h1">{value.toLocaleString('ru-RU')}</Htag>
@@ -104,6 +110,7 @@ export const Calculator = (): JSX.Element => {
 					<P size='small'>3 600 000</P>
 					<P size='small'>10 000 000</P>
 				</div>
+
 				<div className={styles.ml}>
 					<P size='large'>Аренда в месяц, руб.</P>
 					<Htag tag="h1">{value2.toLocaleString('ru-RU')}</Htag>
@@ -121,6 +128,7 @@ export const Calculator = (): JSX.Element => {
 					<P size='small'>100 000</P>
 					<P size='small'>1 000 000</P>
 				</div>
+
 				<FormControl className={styles.form}>
 					<P size='large' className={styles.ml}>Инвестиции</P>
 					<RadioGroup
@@ -128,9 +136,11 @@ export const Calculator = (): JSX.Element => {
 						defaultValue="full"
 						name="radio-buttons-group"
 						className={styles.radiogroup}
+						value={investment}
+						onChange={handleInvestmentChange}
 					>
 						<div className={styles.radioflex}>
-							<CustomFormControlLabel value="full" control={<CustomRadio />}
+							<CustomFormControlLabel value={full} control={<CustomRadio />}
 								label={
 									<>
 										<P className={`${styles.mb_0} ${styles.b}`} size='medium'>{full.toLocaleString('ru-RU')}</P>
@@ -138,7 +148,7 @@ export const Calculator = (): JSX.Element => {
 									</>
 								}
 							/>
-							<CustomFormControlLabel value="notfull" control={<CustomRadio />}
+							<CustomFormControlLabel value={notfull} control={<CustomRadio />}
 								label={
 									<>
 										<P className={`${styles.mb_0} ${styles.b}`} size='medium'>{notfull.toLocaleString('ru-RU')}</P>
@@ -148,6 +158,7 @@ export const Calculator = (): JSX.Element => {
 							/>
 						</div>
 					</RadioGroup>
+
 					<P size='large' className={styles.ml}>Рентабельность</P>
 					<RadioGroup
 						aria-labelledby="investment_label"
@@ -156,12 +167,13 @@ export const Calculator = (): JSX.Element => {
 					>
 						<div className={styles.radioflex}>
 							<CustomFormControlLabel value="full" control={<CustomRadio />}
-							label={
-								<P size='medium' className={`${styles.mb_0} ${styles.b}`}>{rent.toLocaleString('ru-RU')}% в месяц</P>
-							}
+								label={
+									<P size='medium' className={`${styles.mb_0} ${styles.b}`}>{rent.toLocaleString('ru-RU')}% в месяц</P>
+								}
 							/>
 						</div>
 					</RadioGroup>
+
 					<P size='large' className={styles.ml}>Срок окупаемости</P>
 					<RadioGroup
 						aria-labelledby="investment_label"
@@ -176,7 +188,7 @@ export const Calculator = (): JSX.Element => {
 							/>
 						</div>
 					</RadioGroup>
-					<Button appearance='primary' type="submit" value="Отправить">Отправить</Button>
+					<Button appearance='primary' type="submit" className={styles.center} value="Отправить">Отправить</Button>
 				</FormControl>
 			</div>
 			<div className={styles.image_cont}>

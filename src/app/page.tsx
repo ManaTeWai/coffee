@@ -10,6 +10,10 @@ const slides = [
 		imageUrl: '/img/second_slide.jpg',
 		title: 'Капучино',
 	},
+	{
+		imageUrl: '/img/third_slide.jpg',
+		title: 'Ева',
+	},
 ];
 
 export default function Home() {

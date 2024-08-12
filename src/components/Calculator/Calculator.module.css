@@ -57,3 +57,7 @@
 .mb_1 {
 	margin-bottom: 20px;
 }
+
+.center {
+	margin: auto;
+}

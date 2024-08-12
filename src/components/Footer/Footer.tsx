@@ -24,7 +24,7 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
 		'&:hover': {
 			color: 'white',
 			borderBottomColor: 'white'
-		},
+		}
 	},
 	'& .MuiInputLabel-root': {
 		color: 'white',
@@ -61,7 +61,7 @@ export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
 							{(inputProps: React.ComponentProps<typeof TextField>) => (
 								<StyledTextField
 									{...inputProps}
-									id='1'
+									id='4'
 									fullWidth
 									label="Телефон"
 									variant="filled"
@@ -69,15 +69,12 @@ export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
 									autoComplete='on'
 									name='phone'
 									placeholder="+7 (___) ___-__-__"
-									inputProps={{
-										pattern: "8[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"
-									}}
 								/>
 							)}
 						</InputMask>
 
 					</div>
-					<Button appearance='primary' type="submit" value="Отправить">Отправить</Button>
+					<Button appearance='ghost' type="submit" value="Отправить">Отправить</Button>
 				</form>
 			</div>
 			<div className={styles.footer}>
