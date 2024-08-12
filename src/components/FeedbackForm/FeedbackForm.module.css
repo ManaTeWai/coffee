@@ -6,3 +6,9 @@
 	justify-content: space-between;
 	flex-direction: column;
 }
+
+@media (max-width: 600px) {
+	.container {
+		width: 350px;
+	}
+}
