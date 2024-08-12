@@ -1,6 +1,7 @@
 'use client';
 
 // @ts-nocheck
+
 import React, { useState } from 'react';
 import { Htag, Button, P } from '../';
 import styles from './FeedbackForm.module.css';
@@ -101,6 +102,8 @@ export const FeedbackForm = (): JSX.Element => {
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 				/>
+
+
 				<InputMask
 					mask="+7 (999) 999-99-99"
 					value={phoneNumber}
