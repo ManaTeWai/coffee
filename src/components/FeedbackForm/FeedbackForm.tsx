@@ -7,7 +7,29 @@ import { Htag, Button, P } from '../';
 import styles from './FeedbackForm.module.css';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/system';
-import InputMask from 'react-input-mask';
+import MaskedInput from 'react-text-mask';
+import createNumberMask from 'text-mask-addons/dist/createNumberMask';
+
+const phoneNumberMask = [
+	'+',
+	'7',
+	' ',
+	'(',
+	/\d/,
+	/\d/,
+	/\d/,
+	')',
+	' ',
+	/\d/,
+	/\d/,
+	/\d/,
+	'-',
+	/\d/,
+	/\d/,
+	'-',
+	/\d/,
+	/\d/,
+];
 
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
@@ -34,26 +56,6 @@ export const FeedbackForm = (): JSX.Element => {
 	const [message, setMessage] = useState('');
 	const [error, setError] = useState('');
 	const [success, setSuccess] = useState('');
-
-	const CustomTextField = (props: any) => {
-		return (
-			<InputMask {...props}>
-				{(inputProps: any) =>
-					<StyledTextField
-						{...inputProps}
-						id='4'
-						fullWidth
-						label="Номер телефона"
-						variant="filled"
-						type="text"
-						name='phoneNumber'
-						autoComplete='off'
-						value={phoneNumber}
-						placeholder="+7 (___) ___-__-__"
-					/>}
-			</InputMask>
-		);
-	};
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -103,27 +105,27 @@ export const FeedbackForm = (): JSX.Element => {
 					onChange={(e) => setName(e.target.value)}
 				/>
 
-
-				<InputMask
-					mask="+7 (999) 999-99-99"
+				<MaskedInput
+					mask={phoneNumberMask}
 					value={phoneNumber}
 					onChange={(e) => setPhoneNumber(e.target.value)}
-				>
-					{(inputProps: React.ComponentProps<typeof TextField>) => (
+					render={(ref, props) => (
 						<StyledTextField
-							{...inputProps}
-							id='4'
+							{...props}
+							inputRef={ref}
+							id="1"
 							fullWidth
 							label="Номер телефона"
 							variant="filled"
 							type="text"
-							name='phoneNumber'
-							autoComplete='off'
+							name="phoneNumber"
+							autoComplete="off"
 							value={phoneNumber}
 							placeholder="+7 (___) ___-__-__"
 						/>
 					)}
-				</InputMask>
+				/>
+
 				<StyledTextField
 					id='2'
 					fullWidth

@@ -8,7 +8,8 @@ import Image from 'next/image';
 import { P, Htag, Button } from '../'
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/system';
-import InputMask from 'react-input-mask';
+import MaskedInput from 'react-text-mask';
+import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 import { useState } from 'react';
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
@@ -34,6 +35,27 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
 	}
 }));
 
+const phoneNumberMask = [
+	'+',
+	'7',
+	' ',
+	'(',
+	/\d/,
+	/\d/,
+	/\d/,
+	')',
+	' ',
+	/\d/,
+	/\d/,
+	/\d/,
+	'-',
+	/\d/,
+	/\d/,
+	'-',
+	/\d/,
+	/\d/,
+];
+
 export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
 	const [phoneNumber, setPhoneNumber] = useState('');
 
@@ -53,25 +75,26 @@ export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
 							name='name'
 							placeholder="Максим"
 						/>
-						<InputMask
-							mask="+7 (999) 999-99-99"
+						<MaskedInput
+							mask={phoneNumberMask}
 							value={phoneNumber}
 							onChange={(e) => setPhoneNumber(e.target.value)}
-						>
-							{(inputProps: React.ComponentProps<typeof TextField>) => (
+							render={(ref, props) => (
 								<StyledTextField
-									{...inputProps}
-									id='4'
+									{...props}
+									inputRef={ref}
+									id="1"
 									fullWidth
-									label="Телефон"
+									label="Номер телефона"
 									variant="filled"
 									type="text"
-									autoComplete='on'
-									name='phone'
+									name="phoneNumber"
+									autoComplete="off"
+									value={phoneNumber}
 									placeholder="+7 (___) ___-__-__"
 								/>
 							)}
-						</InputMask>
+						/>
 
 					</div>
 					<Button appearance='ghost' type="submit" value="Отправить">Отправить</Button>
