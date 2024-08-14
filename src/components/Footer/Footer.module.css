@@ -1,5 +1,5 @@
 .logo {
-  color: white;
+  color: white !important;
 
   font-family: 'Brygada 1918', serif;
   font-size: 50px !important;
@@ -119,6 +119,7 @@
 @media (max-width: 600px) {
   .form {
     margin-bottom: 15px;
+    width: 100%;
   }
 
   .sale__unit .btn {

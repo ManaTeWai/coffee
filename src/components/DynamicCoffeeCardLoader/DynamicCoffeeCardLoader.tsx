@@ -40,9 +40,9 @@ export const DynamicCoffeeCardLoader = (): JSX.Element => {
 					{new Array(4).fill(null).map((_, index) => (
 						<div className={styles.card} key={`placeholder-${index}`}>
 							<div className={styles.imagePlaceholder} />
-							<Htag tag='h1' className={styles.title}>Загрузка...</Htag>
-							<P size='medium' className={styles.description}>...</P>
-							<P size='medium'>Цена: <span className={styles.price}>0 РУБ.</span></P>
+							<div className={styles.skeleton} />
+							<div className={styles.skeleton} />
+							<div className={styles.skeleton} />
 						</div>
 					))}
 				</div>
