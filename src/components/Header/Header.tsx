@@ -11,22 +11,15 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
 
 	const toggleMenu = () => {
 		setIsOpen(!isOpen);
-
-	};
-
-	const handleClickOutside = (event: MouseEvent) => {
-		if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-			setIsOpen(false);
-		}
 	};
 
 	useEffect(() => {
-		document.addEventListener('mousedown', handleClickOutside as EventListener);
-
-		return () => {
-			document.removeEventListener('mousedown', handleClickOutside as EventListener);
-		};
-	}, []);
+		if (isOpen) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = '';
+		}
+	}, [isOpen]);
 
 	return (
 		<div className={styles.header}>

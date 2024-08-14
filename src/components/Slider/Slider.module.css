@@ -39,7 +39,7 @@
 
 .arrowLeft {
 	position: absolute;
-	z-index: 10;
+	z-index: 4;
 	top: 50%;
 	left: 15px;
 
@@ -61,7 +61,7 @@
 
 .arrowRight {
 	position: absolute;
-	z-index: 10;
+	z-index: 4;
 	top: 50%;
 	right: 15px;
 

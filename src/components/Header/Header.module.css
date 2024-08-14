@@ -95,25 +95,12 @@
     display: none;
   }
 
-  .mobile_nav {
-    position: absolute;
-    z-index: 5;
-    top: 27px;
-    right: -0;
-
-    display: none;
-    flex-direction: column;
-
-    padding: 10px;
-
-    list-style-type: none;
-
-    border: 1px solid #333;
-    border-radius: 10px;
-    background: white;
-  }
-
   .mobile_menu_cont {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -131,7 +118,28 @@
   .mobile_menu_cont a {
     text-decoration: none;
 
-    color: white;
+    color: white !important;
+  }
+
+  .mobile_nav {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    z-index: 5;
+
+    height: calc(100vh - 40px);
+    width: 100vw;
+
+    display: none;
+
+    list-style-type: none;
+
+    background: rgba(70, 43, 14, 0.6);
+  }
+
+  .mobile_li {
+    font-size: 50px;
+    text-decoration: none;
   }
 
   .mobile_nav a {
@@ -141,7 +149,10 @@
   }
 
   .mobile_nav.open {
-    display: block !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 
   .burger {
