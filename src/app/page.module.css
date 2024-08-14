@@ -37,8 +37,34 @@
   line-height: 50px !important;
 }
 
+.calculator_cont {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.image_cont {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  height: 720px;
+}
+
+.banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 @media (max-width: 600px) {
   .wrapper {
     padding: 0 5%;
+  }
+  .calculator_cont {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    align-items: center;
   }
 }

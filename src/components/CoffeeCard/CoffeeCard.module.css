@@ -56,3 +56,9 @@
 	border-radius: 15px;
 	background-color: chocolate;
 }
+
+@media (max-width: 600px) {
+	.cardContainer {
+		justify-content: space-around;
+	}
+}

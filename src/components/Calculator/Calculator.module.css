@@ -5,29 +5,9 @@
 	justify-content: space-between;
 }
 
-.calculator_cont {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 32px;
-}
-
-.image_cont {
-	width: 100%;
-	border-radius: 16px;
-	overflow: hidden;
-	width: 100%;
-	height: 720px;
-}
-
 .calculator {
 	width: 100%;
 	margin: 0 auto;
-}
-
-.banner {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
 }
 
 .ml {

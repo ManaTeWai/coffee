@@ -61,7 +61,7 @@ export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
 							placeholder="+7 (___) ___-__-__"
 						/>
 					</div>
-					<Button appearance='ghost' type="submit" value="Отправить">Отправить</Button>
+					<Button appearance='ghost' type="submit" className={styles.btn} value="Отправить">Отправить</Button>
 				</form>
 			</div>
 			<div className={styles.footer}>

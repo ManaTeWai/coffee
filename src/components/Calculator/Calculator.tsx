@@ -10,7 +10,6 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-import Image from 'next/image';
 
 const StyledSlider = styled(Slider)(({ theme }) => ({
 	color: '#754B1E',
@@ -87,113 +86,108 @@ export const Calculator = (): JSX.Element => {
 
 
 	return (
-		<div className={styles.calculator_cont}>
-			<div className={styles.calculator}>
-				<Htag tag='h1' className={styles.big_header}>
-					От {income.toLocaleString('ru-RU')} руб.
-				</Htag>
+		<div className={styles.calculator}>
+			<Htag tag='h1' className={styles.big_header}>
+				От {income.toLocaleString('ru-RU')} руб.
+			</Htag>
 
-				<div className={styles.ml}>
-					<P size='large'>Товарооборот в месяц, руб.</P>
-					<Htag tag="h1">{value.toLocaleString('ru-RU')}</Htag>
-				</div>
-				<StyledSlider
-					value={value}
-					onChange={handleSliderChange}
-					aria-labelledby="number-slider"
-					size='medium'
-					step={100000}
-					min={3600000}
-					max={10000000}
-				/>
-				<div className={styles.slider_interval}>
-					<P size='small'>3 600 000</P>
-					<P size='small'>10 000 000</P>
-				</div>
-
-				<div className={styles.ml}>
-					<P size='large'>Аренда в месяц, руб.</P>
-					<Htag tag="h1">{value2.toLocaleString('ru-RU')}</Htag>
-				</div>
-				<StyledSlider
-					value={value2}
-					onChange={handleSliderChange2}
-					aria-labelledby="number-slider"
-					size='medium'
-					step={50000}
-					min={100000}
-					max={1000000}
-				/>
-				<div className={styles.slider_interval}>
-					<P size='small'>100 000</P>
-					<P size='small'>1 000 000</P>
-				</div>
-
-				<FormControl className={styles.form}>
-					<P size='large' className={styles.ml}>Инвестиции</P>
-					<RadioGroup
-						aria-labelledby="investment_label"
-						defaultValue="full"
-						name="radio-buttons-group"
-						className={styles.radiogroup}
-						value={investment}
-						onChange={handleInvestmentChange}
-					>
-						<div className={styles.radioflex}>
-							<CustomFormControlLabel value={full} control={<CustomRadio />}
-								label={
-									<>
-										<P className={`${styles.mb_0} ${styles.b}`} size='medium'>{full.toLocaleString('ru-RU')}</P>
-										<P className={styles.mb_0} size='small'>Полный цикл</P>
-									</>
-								}
-							/>
-							<CustomFormControlLabel value={notfull} control={<CustomRadio />}
-								label={
-									<>
-										<P className={`${styles.mb_0} ${styles.b}`} size='medium'>{notfull.toLocaleString('ru-RU')}</P>
-										<P className={styles.mb_0} size='small'>Доготовка</P>
-									</>
-								}
-							/>
-						</div>
-					</RadioGroup>
-
-					<P size='large' className={styles.ml}>Рентабельность</P>
-					<RadioGroup
-						aria-labelledby="investment_label"
-						defaultValue="full"
-						name="radio-buttons-group"
-					>
-						<div className={styles.radioflex}>
-							<CustomFormControlLabel value="full" control={<CustomRadio />}
-								label={
-									<P size='medium' className={`${styles.mb_0} ${styles.b}`}>{rent.toLocaleString('ru-RU')}% в месяц</P>
-								}
-							/>
-						</div>
-					</RadioGroup>
-
-					<P size='large' className={styles.ml}>Срок окупаемости</P>
-					<RadioGroup
-						aria-labelledby="investment_label"
-						defaultValue="full"
-						name="radio-buttons-group"
-					>
-						<div className={styles.radioflex}>
-							<CustomFormControlLabel value="full" control={<CustomRadio />}
-								label={
-									<P size='medium' className={`${styles.mb_0} ${styles.b}`}>От {payback.toLocaleString('ru-RU')} месяцев</P>
-								}
-							/>
-						</div>
-					</RadioGroup>
-					<Button appearance='primary' type="submit" className={styles.center} value="Отправить">Отправить</Button>
-				</FormControl>
+			<div className={styles.ml}>
+				<P size='large'>Товарооборот в месяц, руб.</P>
+				<Htag tag="h1">{value.toLocaleString('ru-RU')}</Htag>
 			</div>
-			<div className={styles.image_cont}>
-				<Image width={300} height={500} alt='Фото' src='/img/banner-img.jpeg' className={styles.banner} />
+			<StyledSlider
+				value={value}
+				onChange={handleSliderChange}
+				aria-labelledby="number-slider"
+				size='medium'
+				step={100000}
+				min={3600000}
+				max={10000000}
+			/>
+			<div className={styles.slider_interval}>
+				<P size='small'>3 600 000</P>
+				<P size='small'>10 000 000</P>
 			</div>
+
+			<div className={styles.ml}>
+				<P size='large'>Аренда в месяц, руб.</P>
+				<Htag tag="h1">{value2.toLocaleString('ru-RU')}</Htag>
+			</div>
+			<StyledSlider
+				value={value2}
+				onChange={handleSliderChange2}
+				aria-labelledby="number-slider"
+				size='medium'
+				step={50000}
+				min={100000}
+				max={1000000}
+			/>
+			<div className={styles.slider_interval}>
+				<P size='small'>100 000</P>
+				<P size='small'>1 000 000</P>
+			</div>
+
+			<FormControl className={styles.form}>
+				<P size='large' className={styles.ml}>Инвестиции</P>
+				<RadioGroup
+					aria-labelledby="investment_label"
+					defaultValue="full"
+					name="radio-buttons-group"
+					className={styles.radiogroup}
+					value={investment}
+					onChange={handleInvestmentChange}
+				>
+					<div className={styles.radioflex}>
+						<CustomFormControlLabel value={full} control={<CustomRadio />}
+							label={
+								<>
+									<P className={`${styles.mb_0} ${styles.b}`} size='medium'>{full.toLocaleString('ru-RU')}</P>
+									<P className={styles.mb_0} size='small'>Полный цикл</P>
+								</>
+							}
+						/>
+						<CustomFormControlLabel value={notfull} control={<CustomRadio />}
+							label={
+								<>
+									<P className={`${styles.mb_0} ${styles.b}`} size='medium'>{notfull.toLocaleString('ru-RU')}</P>
+									<P className={styles.mb_0} size='small'>Доготовка</P>
+								</>
+							}
+						/>
+					</div>
+				</RadioGroup>
+
+				<P size='large' className={styles.ml}>Рентабельность</P>
+				<RadioGroup
+					aria-labelledby="investment_label"
+					defaultValue="full"
+					name="radio-buttons-group"
+				>
+					<div className={styles.radioflex}>
+						<CustomFormControlLabel value="full" control={<CustomRadio />}
+							label={
+								<P size='medium' className={`${styles.mb_0} ${styles.b}`}>{rent.toLocaleString('ru-RU')}% в месяц</P>
+							}
+						/>
+					</div>
+				</RadioGroup>
+
+				<P size='large' className={styles.ml}>Срок окупаемости</P>
+				<RadioGroup
+					aria-labelledby="investment_label"
+					defaultValue="full"
+					name="radio-buttons-group"
+				>
+					<div className={styles.radioflex}>
+						<CustomFormControlLabel value="full" control={<CustomRadio />}
+							label={
+								<P size='medium' className={`${styles.mb_0} ${styles.b}`}>От {payback.toLocaleString('ru-RU')} месяцев</P>
+							}
+						/>
+					</div>
+				</RadioGroup>
+				<Button appearance='primary' type="submit" className={styles.center} value="Отправить">Отправить</Button>
+			</FormControl>
 		</div>
 	);
 }

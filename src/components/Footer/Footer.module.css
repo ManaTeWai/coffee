@@ -87,7 +87,7 @@
 .sale__unit {
   display: flex;
   align-items: center;
-  flex-wrap: wrap !important  ;
+  flex-wrap: wrap !important;
   justify-content: space-between;
 
   margin: auto;
@@ -96,7 +96,7 @@
   color: white;
 }
 
-.sale__unit > * {
+.sale__unit>* {
   width: 350px;
 }
 
@@ -114,4 +114,18 @@
   border-radius: 10px;
 
   font-size: 24px;
+}
+
+@media (max-width: 600px) {
+  .form {
+    margin-bottom: 15px;
+  }
+
+  .sale__unit .btn {
+    margin: auto;
+  }
+
+  .footer_menu {
+    flex-direction: column;
+  }
 }

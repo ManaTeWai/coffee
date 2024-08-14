@@ -11,6 +11,7 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
 
 	const toggleMenu = () => {
 		setIsOpen(!isOpen);
+
 	};
 
 	const handleClickOutside = (event: MouseEvent) => {
@@ -41,7 +42,7 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
 			<div className={styles.mobile_menu_cont} ref={menuRef}>
 				<Link href="/" className={styles.logo}>КофеТайм</Link>
 				<div className={styles.mobile_menu}>
-					<div className={styles.burger} onClick={toggleMenu}>
+					<div className={`${styles.burger} ${isOpen ? styles.open : ''}`} onClick={toggleMenu}>
 						<div></div>
 						<div></div>
 						<div></div>
