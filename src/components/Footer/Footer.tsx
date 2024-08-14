@@ -100,7 +100,7 @@ export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
 				</div>
 				<div className={styles.copyright}>
 					<P size="medium">© 2022 - {format(new Date(), 'yyyy')} КофеТайм. Все права защищены.</P>
-					<Link className={styles.copy_link} href="/policy">Политика конфиденциальности</Link>
+					<P size='medium'><Link className={styles.copy_link} href="/policy">Политика конфиденциальности</Link></P>
 				</div>
 			</div>
 		</div>

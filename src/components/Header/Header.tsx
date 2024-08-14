@@ -13,6 +13,10 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
 		setIsOpen(!isOpen);
 	};
 
+	const CloseMenu = () => {
+		setIsOpen(false);
+	};
+
 	useEffect(() => {
 		if (isOpen) {
 			document.body.style.overflow = 'hidden';
@@ -33,7 +37,7 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
 				</ul>
 			</div>
 			<div className={styles.mobile_menu_cont} ref={menuRef}>
-				<Link href="/" className={styles.logo}>КофеТайм</Link>
+				<Link href="/" className={styles.logo} onClick={CloseMenu}>КофеТайм</Link>
 				<div className={styles.mobile_menu}>
 					<div className={`${styles.burger} ${isOpen ? styles.open : ''}`} onClick={toggleMenu}>
 						<div></div>
