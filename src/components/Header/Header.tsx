@@ -41,10 +41,10 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
 						<div></div>
 					</div>
 					<ul className={`${styles.mobile_nav} ${isOpen ? styles.open : ''}`}>
-						<li className={styles.mobile_li}><Link href="/about">О нас</Link></li>
-						<li className={styles.mobile_li}><Link href="/review">Отзывы</Link></li>
-						<li className={styles.mobile_li}><Link href="/ceeds">Зерна</Link></li>
-						<li className={styles.mobile_li}><Link href="/delivery">Доставка</Link></li>
+						<li className={styles.mobile_li} onClick={toggleMenu}><Link href="/about">О нас</Link></li>
+						<li className={styles.mobile_li} onClick={toggleMenu}><Link href="/review">Отзывы</Link></li>
+						<li className={styles.mobile_li} onClick={toggleMenu}><Link href="/ceeds">Зерна</Link></li>
+						<li className={styles.mobile_li} onClick={toggleMenu}><Link href="/delivery">Доставка</Link></li>
 					</ul>
 				</div>
 			</div>

@@ -118,8 +118,17 @@
 
 @media (max-width: 600px) {
   .form {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     width: 100%;
+  }
+
+  .footer_menu {
+    align-items: center;
+  }
+
+  .menu {
+    text-align: center;
+    margin-bottom: 20px;
   }
 
   .sale__unit .btn {
