@@ -59,7 +59,7 @@ export const Slider = ({ slides, ...props }: SliderProps): JSX.Element => {
 			<div className={styles.sliderWrapper} style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
 				{slides.map((slide, index) => (
 					<div className={styles.slide} key={index}>
-						<Image src={slide.imageUrl} alt={slide.title} className={styles.image} layout="fill" objectFit="cover" />
+						<Image src={slide.imageUrl} alt={slide.title} className={styles.image} fill style={{objectFit: 'cover'}} />
 					</div>
 				))}
 			</div>
