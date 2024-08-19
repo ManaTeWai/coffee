@@ -68,7 +68,7 @@
 .burger.open div:nth-child(3) {
   transform: rotate(-45deg);
   position: relative;
-  top: -4px;
+  top: -5px;
 }
 
 .nav {
@@ -90,7 +90,7 @@
   display: none;
 }
 
-@media (width <=768px) {
+@media (max-width = 768px) {
   .menu {
     display: none;
   }
