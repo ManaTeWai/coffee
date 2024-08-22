@@ -1,26 +1,15 @@
 import { notFound } from 'next/navigation';
-import { products } from '@/utils/products';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import styles from './page.module.css';
 import { Htag, P } from '@/components';
+import { createClient } from '@supabase/supabase-js';
 
-export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
-	const productId = parseInt(params.id, 10);
-
-	if (isNaN(productId) || productId < 0 || productId >= products.length) {
-		return {
-			title: 'Товар не найден',
-		};
-	}
-
-	const product = products[productId];
-
-	return {
-		title: product.title,
-		description: product.description,
-	};
-}
+// Создайте клиент Supabase
+const supabase = createClient(
+	process.env.NEXT_PUBLIC_SUPABASE_URL as string,
+	process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
+);
 
 type ProductPageProps = {
 	params: {
@@ -28,14 +17,39 @@ type ProductPageProps = {
 	};
 };
 
-export default function ProductPage({ params }: ProductPageProps) {
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
 	const productId = parseInt(params.id, 10);
 
-	if (isNaN(productId) || productId < 0 || productId >= products.length) {
-		notFound();
+	const { data: product, error } = await supabase
+		.from('Products')
+		.select('*')
+		.eq('id', productId)
+		.single();
+
+	if (error || !product) {
+		return {
+			title: 'Товар не найден',
+		};
 	}
 
-	const product = products[productId];
+	return {
+		title: product.title,
+		description: product.description,
+	};
+}
+
+export default async function ProductPage({ params }: ProductPageProps) {
+	const productId = parseInt(params.id, 10);
+
+	const { data: product, error } = await supabase
+		.from('Products')
+		.select('*')
+		.eq('id', productId)
+		.single();
+
+	if (error || !product) {
+		notFound();
+	}
 
 	return (
 		<div className={styles.page_wrapper}>
@@ -50,7 +64,7 @@ export default function ProductPage({ params }: ProductPageProps) {
 				</div>
 			</div>
 			<div className={styles.some_desc}>
-
+				{/* Здесь можно добавить дополнительное описание */}
 			</div>
 		</div>
 	);

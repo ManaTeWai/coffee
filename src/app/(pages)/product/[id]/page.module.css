@@ -21,3 +21,11 @@
 .some_desc {
 	height: 17vh;
 }
+
+@media (max-width: 768px) {
+	.main_content {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+}

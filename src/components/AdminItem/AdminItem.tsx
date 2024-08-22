@@ -4,14 +4,11 @@ import styles from './AdminItem.module.css';
 import Image from 'next/image';
 import { Htag, P, Button } from '..';
 import Link from 'next/link';
-import { useState } from 'react';
-import { Card } from '../../utils/products';
+import { useState, useEffect } from 'react';
+import { supabase } from '@/utils/supabase'; // Подключаем клиента Supabase
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/system';
-
-type CardsProps = {
-	cards: Card[];
-};
+import { Card } from '@/utils/products'
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
 	marginBottom: '10px',
@@ -30,41 +27,66 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
 	},
 }));
 
-export const AdminItem = ({ cards, ...props }: CardsProps): JSX.Element => {
+export const AdminItem = (): JSX.Element => {
+	const [cards, setCards] = useState<Card[]>([]);
+	const [loading, setLoading] = useState(true);
 	const [editingIndex, setEditingIndex] = useState<number | null>(null);
 	const [editForm, setEditForm] = useState<Card>({
+		id: 0,
 		imageUrl: '',
 		title: '',
 		description: '',
 		price: 0,
 	});
 
+	// Загрузка карточек из Supabase
+	useEffect(() => {
+		const fetchCards = async () => {
+			const { data, error } = await supabase
+				.from('Products') // Название таблицы
+				.select('*');
+
+			if (error) {
+				console.error('Ошибка загрузки данных:', error);
+			} else {
+				setCards(data || []);
+			}
+			setLoading(false);
+		};
+
+		fetchCards();
+	}, []);
+
+	// Обработка нажатия на кнопку "Редактировать"
 	const handleEditClick = (index: number) => {
 		setEditingIndex(index);
 		setEditForm(cards[index]);
 	};
 
+	// Обновление формы редактирования
 	const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		const { name, value } = e.target;
 		setEditForm(prev => ({ ...prev, [name]: name === 'price' ? Number(value) : value }));
 	};
 
+	// Обработка нажатия на кнопку "Сохранить"
 	const handleSaveClick = async () => {
 		if (editingIndex !== null) {
 			try {
-				const res = await fetch('/api/updateCard', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({ index: editingIndex, updatedCard: editForm }),
-				});
+				const updatedCard = { ...editForm };
 
-				if (res.ok) {
-					cards[editingIndex] = editForm;
-					setEditingIndex(null);
+				const { error } = await supabase
+					.from('Products') // Название таблицы
+					.update(updatedCard)
+					.eq('id', updatedCard.id); // Обновляем запись по ID
+
+				if (error) {
+					console.error('Ошибка при обновлении карточки:', error);
 				} else {
-					console.error('Ошибка при обновлении карточки');
+					const updatedCards = [...cards];
+					updatedCards[editingIndex] = updatedCard;
+					setCards(updatedCards);
+					setEditingIndex(null);
 				}
 			} catch (error) {
 				if (error instanceof Error) {
@@ -76,11 +98,39 @@ export const AdminItem = ({ cards, ...props }: CardsProps): JSX.Element => {
 		}
 	};
 
+	// Обработка нажатия на кнопку "Удалить"
+	const handleDeleteClick = async (id: number) => {
+		try {
+			const { error } = await supabase
+				.from('Products') // Название таблицы
+				.delete()
+				.eq('id', id); // Удаляем запись по ID
+
+			if (error) {
+				console.error('Ошибка при удалении карточки:', error);
+			} else {
+				setCards(cards.filter(card => card.id !== id));
+			}
+		} catch (error) {
+			if (error instanceof Error) {
+				console.error('Ошибка при отправке запроса:', error.message);
+			} else {
+				console.error('Неизвестная ошибка при отправке запроса');
+			}
+		}
+	};
+
+	if (loading) {
+		return <div>Загрузка...</div>;
+	}
+
 	return (
 		<div className={styles.cardContainer}>
 			{cards.map((card, index) => (
-				<div className={styles.card} key={index}>
-					<Image src={card.imageUrl} alt={card.title} width={200} height={200} className={styles.image} />
+				<div className={styles.card} key={card.id}>
+					<Link href={`/product/${card.id}`}>
+						<Image src={card.imageUrl} alt={card.title} width={200} height={200} className={styles.image} />
+					</Link>
 					<div className={styles.desc_cont}>
 						<Link href={card.imageUrl} target='_blank'>{card.imageUrl}</Link>
 						<Htag tag='h1' className={styles.title}>{card.title}</Htag>
@@ -88,8 +138,8 @@ export const AdminItem = ({ cards, ...props }: CardsProps): JSX.Element => {
 						<P size='large'>Цена: <span className={styles.price}>{card.price} РУБ.</span></P>
 					</div>
 					<div className={styles.btns}>
-						<Button appearance='primary'>Удалить</Button>
 						<Button appearance='primary' onClick={() => handleEditClick(index)}>Редактировать</Button>
+						<Button appearance='primary' onClick={() => handleDeleteClick(card.id)}>Удалить</Button>
 					</div>
 				</div>
 			))}
@@ -149,8 +199,7 @@ export const AdminItem = ({ cards, ...props }: CardsProps): JSX.Element => {
 						</div>
 					</div>
 				</div>
-			)
-			}
+			)}
 		</div >
 	);
 }

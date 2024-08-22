@@ -1,41 +1,58 @@
 'use client'
 
-import { useEffect, useState } from 'react';
-import { CoffeeCard, Htag, P } from '@/components';
-import { products as initialCards } from '@/utils/products';
-import styles from './DynamicCoffeeCardLoader.module.css';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { CoffeeCard } from '..';
+import { fetchMoreProducts } from '@/services/fetchMoreProducts'; // Функция для получения дополнительных продуктов из Supabase
+import { Card } from '@/utils/products'; // Убедитесь, что путь к файлу правильный
+import styles from './DynamicCoffeeCardLoader.module.css'
 
-type Card = {
-	imageUrl: string;
-	title: string;
-	description: string;
-	price: number;
-};
+export const DynamicCoffeeCardLoader = () => {
+	const [cards, setCards] = useState<Card[]>([]);
+	const [loading, setLoading] = useState<boolean>(false);
+	const [hasMore, setHasMore] = useState<boolean>(true);
 
-export const DynamicCoffeeCardLoader = (): JSX.Element => {
-	const [cards, setCards] = useState<Card[]>(initialCards.slice(0, 8));
-	const [loading, setLoading] = useState<boolean>(true);
+	const loadMoreRef = useRef<HTMLDivElement | null>(null);
+
+	const loadMoreCards = useCallback(async () => {
+		if (loading || !hasMore) return;
+		setLoading(true);
+
+		const newCards = await fetchMoreProducts(cards.length);
+		if (newCards.length > 0) {
+			setCards((prevCards) => [...prevCards, ...newCards]);
+		} else {
+			setHasMore(false);
+		}
+
+		setLoading(false);
+	}, [loading, hasMore, cards.length]);
 
 	useEffect(() => {
-		const loadMoreCards = () => {
-			setCards((prevCards) => [
-				...prevCards,
-				...initialCards.slice(prevCards.length, prevCards.length + 4),
-			]);
-		};
+		loadMoreCards();
+	}, [loadMoreCards]);
 
-		if (cards.length < initialCards.length) {
-			const interval = setInterval(loadMoreCards, 2000);
-			return () => clearInterval(interval);
-		} else {
-			setLoading(false);
+	useEffect(() => {
+		const observer = new IntersectionObserver((entries) => {
+			if (entries[0].isIntersecting && hasMore) {
+				loadMoreCards();
+			}
+		});
+
+		if (loadMoreRef.current) {
+			observer.observe(loadMoreRef.current);
 		}
-	}, [cards]);
+
+		return () => {
+			if (loadMoreRef.current) {
+				observer.unobserve(loadMoreRef.current);
+			}
+		};
+	}, [loadMoreCards, hasMore]);
 
 	return (
-		<>
-			<CoffeeCard cards={cards} />
-			{loading && (
+		<div>
+			<CoffeeCard />
+			{loading && 
 				<div className={styles.cardContainer}>
 					{new Array(4).fill(null).map((_, index) => (
 						<div className={styles.card} key={`placeholder-${index}`}>
@@ -46,7 +63,8 @@ export const DynamicCoffeeCardLoader = (): JSX.Element => {
 						</div>
 					))}
 				</div>
-			)}
-		</>
+			}
+			<div ref={loadMoreRef} />
+		</div>
 	);
-}
+};

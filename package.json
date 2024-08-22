@@ -14,6 +14,7 @@
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.20",
     "@mui/system": "^5.15.20",
+    "@supabase/supabase-js": "^2.45.1",
     "classnames": "^2.5.1",
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
