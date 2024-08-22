@@ -9,17 +9,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			return res.status(400).json({ error: 'Invalid request' });
 		}
 
-		// Проверка авторизации (если требуется)
-		const user = supabase.auth.user();
-		if (!user) {
-			return res.status(401).json({ error: 'Unauthorized' });
-		}
-
 		// Проверка прав пользователя
 		const { data: userData, error: userError } = await supabase
 			.from('users')
 			.select('role')
-			.eq('id', user.id)
 			.single();
 
 		if (userError || userData.role !== 'admin') {
@@ -36,9 +29,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			return res.status(500).json({ error: error.message });
 		}
 
-		return res.status(200).json({ message: 'Card deleted successfully' });
+		res.status(200).json({ message: 'Карточка успешно удалена' });
 	} else {
-		res.setHeader('Allow', ['DELETE']);
-		res.status(405).end(`Method ${req.method} Not Allowed`);
+		res.status(405).json({ message: 'Метод не разрешен' });
 	}
 }
