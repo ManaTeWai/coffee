@@ -6,47 +6,56 @@ import styles from './CoffeeCard.module.css';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { supabase } from '@/utils/supabase';
-import { Card } from '@/utils/products';
 
 export const CoffeeCard = (): JSX.Element => {
-	const [cards, setCards] = useState<Card[]>([]);
+	const [cards, setCards] = useState<any[]>([]);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const fetchCards = async () => {
-			const { data, error } = await supabase
-				.from('Products')
-				.select('*');
+			try {
+				// Запрос данных из таблицы Products
+				const { data, error } = await supabase
+					.from('Products')
+					.select('*')
+					.order('id', { ascending: true });
 
-			if (error) {
-				console.error('Ошибка загрузки данных:', error);
-			} else {
-				console.log(data);
-				setCards(data || []);
+				if (error) {
+					console.error('Ошибка загрузки данных:', error);
+				} else {
+					setCards(data || []);
+				}
+			} catch (error) {
+				console.error('Ошибка при выполнении запроса:', error);
+			} finally {
+				setLoading(false);
 			}
-			setLoading(false);
 		};
 
 		fetchCards();
 	}, []);
 
 	if (loading) {
-		return <div className={styles.cardContainer}>
-			{new Array(8).fill(null).map((_, index) => (
-				<div className={styles.LoadingCard} key={`placeholder-${index}`}>
-					<div className={styles.imagePlaceholder} />
-					<div className={styles.skeleton} />
-					<div className={styles.skeleton} />
-					<div className={styles.skeleton} />
-				</div>
-			))}
-		</div>;
+		// Показываем placeholder во время загрузки
+		return (
+			<div className={styles.cardContainer}>
+				{new Array(8).fill(null).map((_, index) => (
+					<div className={styles.LoadingCard} key={`placeholder-${index}`}>
+						<div className={styles.imagePlaceholder} />
+						<div className={styles.skeleton} />
+						<div className={styles.skeleton} />
+						<div className={styles.skeleton} />
+					</div>
+				))}
+			</div>
+		);
 	}
 
+	// Рендерим карточки продуктов
 	return (
 		<div className={styles.cardContainer}>
-			{cards.map((card, index) => (
-				<Link key={index} href={`/product/${index + 1}`} className={styles.link}>
+			{cards.map((card) => (
+				<Link key={card.id} href={`/product/${card.id}`} className={styles.link}>
 					<div className={styles.card}>
 						<Image src={card.imageUrl} alt={card.title} width={200} height={200} className={styles.image} />
 						<Htag tag='h1' className={styles.title}>{card.title}</Htag>

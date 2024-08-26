@@ -5,6 +5,7 @@ import styles from './page.module.css';
 import { Htag, P } from '@/components';
 import { createClient } from '@supabase/supabase-js';
 
+
 // Создайте клиент Supabase
 const supabase = createClient(
 	process.env.NEXT_PUBLIC_SUPABASE_URL as string,
@@ -26,15 +27,9 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 		.eq('id', productId)
 		.single();
 
-	if (error || !product) {
-		return {
-			title: 'Товар не найден',
-		};
-	}
-
 	return {
-		title: product.title,
-		description: product.description,
+		title: `Кофе Тайм || ${product?.title || 'Продукт не найден'}`,
+		description: `Описание для ${product?.title || 'этого продукта'}`,
 	};
 }
 
@@ -55,7 +50,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 		<div className={styles.page_wrapper}>
 			<div className={styles.main_content}>
 				<div className={styles.title}>
-					<Htag tag='h1'>{product.title}</Htag>
+					<Htag tag='h1' className={styles.titleHeader}>{product.title}</Htag>
 					<Image src={product.imageUrl} alt={product.title} width={250} height={250} />
 				</div>
 				<div className={styles.description}>
@@ -64,7 +59,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 				</div>
 			</div>
 			<div className={styles.some_desc}>
-				{/* Здесь можно добавить дополнительное описание */}
+				<P size='medium'>{product.some_desc}</P>
 			</div>
 		</div>
 	);

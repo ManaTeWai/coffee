@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Htag, P, Button } from '..';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { supabase } from '@/utils/supabase'; // Подключаем клиента Supabase
+import { supabase } from '@/utils/supabase';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/system';
 import { Card } from '@/utils/products'
@@ -42,16 +42,23 @@ export const AdminItem = (): JSX.Element => {
 	// Загрузка карточек из Supabase
 	useEffect(() => {
 		const fetchCards = async () => {
-			const { data, error } = await supabase
-				.from('Products') // Название таблицы
-				.select('*');
+			try {
+				// Запрос данных из таблицы Products
+				const { data, error } = await supabase
+					.from('Products')
+					.select('*')
+					.order('id', { ascending: true });
 
-			if (error) {
-				console.error('Ошибка загрузки данных:', error);
-			} else {
-				setCards(data || []);
+				if (error) {
+					console.error('Ошибка загрузки данных:', error);
+				} else {
+					setCards(data || []);
+				}
+			} catch (error) {
+				console.error('Ошибка при выполнении запроса:', error);
+			} finally {
+				setLoading(false);
 			}
-			setLoading(false);
 		};
 
 		fetchCards();

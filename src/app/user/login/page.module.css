@@ -1,0 +1,21 @@
+.page_wrapper {
+	height: 44vh;
+	display: flex;
+}
+
+.container {
+	width: 400px;
+	margin: auto;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	align-items: center;
+	flex-direction: column;
+}
+
+@media (max-width: 768px) {
+	.container {
+		width: 100%;
+	}
+}
