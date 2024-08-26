@@ -59,8 +59,8 @@
 
 .social {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-around;
 }
 
 .copyright {
@@ -117,10 +117,10 @@
   font-size: 24px;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .form {
-    margin-bottom: 20px;
     width: 100%;
+    margin-bottom: 20px;
   }
 
   .logo {
@@ -132,8 +132,9 @@
   }
 
   .menu {
-    text-align: center;
     margin-bottom: 20px;
+
+    text-align: center;
   }
 
   .sale__unit .btn {
@@ -145,8 +146,9 @@
   }
 
   .copyright {
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+
     text-align: center;
   }
 }

@@ -1,20 +1,23 @@
 .page_wrapper {
-	height: 44vh;
 	display: flex;
+
+	height: 44vh;
 }
 
 .container {
-	width: 400px;
-	margin: auto;
-	text-align: center;
 	display: flex;
-	justify-content: center;
-	gap: 20px;
 	align-items: center;
 	flex-direction: column;
+	justify-content: center;
+
+	width: 400px;
+	margin: auto;
+
+	text-align: center;
+	gap: 20px;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
 	.container {
 		width: 100%;
 	}

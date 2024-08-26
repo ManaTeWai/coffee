@@ -1,13 +1,15 @@
 .container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
 	width: 400px;
 	margin: auto;
+
 	text-align: center;
-	display: flex;
-	justify-content: space-between;
-	flex-direction: column;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
 	.container {
 		width: 100%;
 	}

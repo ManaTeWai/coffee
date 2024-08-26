@@ -35,7 +35,7 @@
     "@types/react-text-mask": "^5.4.14",
     "eslint": "^8",
     "eslint-config-next": "^0.2.4",
-    "stylelint": "^7.7.0",
+    "stylelint": "^16.8.2",
     "stylelint-config-standard": "^36.0.0",
     "stylelint-order": "^6.0.4",
     "stylelint-order-config-standard": "^0.1.3",
