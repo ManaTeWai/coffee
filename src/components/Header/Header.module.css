@@ -43,10 +43,6 @@
   cursor: pointer;
 }
 
-.burger {
-  cursor: pointer;
-}
-
 .burger div {
   width: 30px;
   height: 3px;

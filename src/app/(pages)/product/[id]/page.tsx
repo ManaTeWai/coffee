@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import styles from './page.module.css';
-import { Htag, P } from '@/components';
+import { Htag, P, RatingState } from '@/components';
 import { createClient } from '@supabase/supabase-js';
 
 
@@ -56,6 +56,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 				<div className={styles.description}>
 					<P size='medium'>{product.description}</P>
 					<P size='large'>Цена: <span className={styles.price}>{product.price} РУБ.</span></P>
+					<RatingState productId={productId} />
 				</div>
 			</div>
 			<div className={styles.some_desc}>

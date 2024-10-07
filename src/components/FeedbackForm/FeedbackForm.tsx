@@ -72,25 +72,26 @@ export const FeedbackForm = (): JSX.Element => {
 					label="Ваше имя"
 					variant="filled"
 					type="text"
-					autoComplete='on'
+					autoComplete='name'
 					name='name'
 					placeholder="Ваше имя"
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 				/>
 				<StyledTextField
-					id="1"
+					id='2'
 					fullWidth
 					label="Номер телефона"
 					variant="filled"
 					type="text"
 					name="phoneNumber"
-					autoComplete="off"
+					autoComplete="tel"
 					value={phoneNumber}
-					placeholder="+7 (___) ___-__-__"
+					placeholder="8 (___) ___-__-__"
+					onChange={(e) => setPhoneNumber(e.target.value)}
 				/>
 				<StyledTextField
-					id='2'
+					id='3'
 					fullWidth
 					label="Тема сообщения"
 					variant="filled"
@@ -102,7 +103,7 @@ export const FeedbackForm = (): JSX.Element => {
 					onChange={(e) => setSubject(e.target.value)}
 				/>
 				<StyledTextField
-					id='3'
+					id='4'
 					fullWidth
 					label="Текст сообщения"
 					multiline

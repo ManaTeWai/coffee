@@ -25,9 +25,15 @@ export async function POST(req: Request) {
 		const mailOptions = {
 			from: USER,
 			to: USER,
-			subject: `Обратная связь от: ${name} Тема: ${subject} Номер телефона: ${phoneNumber}`,
-			text: message,
+			subject: `CoffeeTime - тема: ${subject}`,
+			html: `
+				<h2>Обратная связь от: ${name}</h2>
+				<p>Номер телефона: <a href="tel:${phoneNumber}">${phoneNumber}</a></p>
+				<p>${message}</p>
+			`,
 		};
+
+
 
 		const info = await transporter.sendMail(mailOptions);
 		console.log('Письмо успешно отправлено:', info.response);
