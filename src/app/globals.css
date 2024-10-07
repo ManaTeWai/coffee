@@ -12,3 +12,7 @@ body {
 body {
   background-color: white;
 }
+
+ul {
+  margin: 1em 0;
+}
