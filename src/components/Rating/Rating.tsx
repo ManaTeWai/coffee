@@ -12,7 +12,7 @@ const supabase = createClient(
 	process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
 );
 
-export const Rating = ({ isEditable = false, rating, setRating, productId, ...props }: RatingProps): JSX.Element => {
+export const Rating = ({ rating, setRating, productId, isEditable = false, ...props }: RatingProps): JSX.Element => {
 	const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 
 	useEffect(() => {
@@ -20,20 +20,18 @@ export const Rating = ({ isEditable = false, rating, setRating, productId, ...pr
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [rating]);
 
-	const constructRating = (CurrentRating: number) => {
-		const updatedArray = ratingArray.map((r: JSX.Element, i: number) => {
-			return (
-				<StarIcon
-					key={i} // Добавил ключ для каждой иконки
-					className={cn(styles.Star, {
-						[styles.filled]: i < CurrentRating,
-						[styles.editable]: isEditable
-					})}
-					onMouseEnter={() => changeDisplay(i + 1)}
-					onClick={() => HandleClick(i + 1)}
-				/>
-			);
-		});
+	const constructRating = (currentRating: number) => {
+		const updatedArray = ratingArray.map((r: JSX.Element, i: number) => (
+			<StarIcon
+				key={i}
+				className={cn(styles.Star, {
+					[styles.filled]: i < currentRating,
+					[styles.editable]: isEditable
+				})}
+				onMouseEnter={() => changeDisplay(i + 1)}
+				onClick={() => handleClick(i + 1)}
+			/>
+		));
 		setRatingArray(updatedArray);
 	};
 
@@ -44,10 +42,21 @@ export const Rating = ({ isEditable = false, rating, setRating, productId, ...pr
 		constructRating(i);
 	};
 
-	const HandleClick = async (i: number) => {
+	const handleClick = async (i: number) => {
 		if (!isEditable || !setRating) {
 			return;
 		}
+
+		// Проверка, оставлял ли пользователь оценку ранее
+		const userRated = localStorage.getItem(`rated_${productId}`);
+		if (userRated) {
+			alert('Вы уже оставили оценку!');
+			return;
+		}
+
+		// Сохраняем оценку в localStorage, чтобы пользователь не мог проголосовать повторно
+		localStorage.setItem(`rated_${productId}`, String(i));
+
 		setRating(i);
 
 		// Проверяем наличие productId перед обновлением
@@ -56,13 +65,32 @@ export const Rating = ({ isEditable = false, rating, setRating, productId, ...pr
 			return;
 		}
 
-		const { error } = await supabase
+		// Получаем текущие данные по рейтингу
+		const { data: productData, error: fetchError } = await supabase
 			.from('Products')
-			.update({ rating: i })
+			.select('rating, ratings_count')
+			.eq('id', productId)
+			.single();
+
+		if (fetchError) {
+			console.error('Ошибка при получении данных продукта:', fetchError);
+			return;
+		}
+
+		const { rating: currentRating, ratings_count: ratingsCount } = productData;
+
+		// Рассчитываем новый средний рейтинг
+		const newRatingsCount = ratingsCount + 1;
+		const newRating = ((currentRating * ratingsCount) + i) / newRatingsCount;
+
+		// Обновляем рейтинг и количество голосов в базе данных
+		const { error: updateError } = await supabase
+			.from('Products')
+			.update({ rating: newRating, ratings_count: newRatingsCount })
 			.eq('id', productId);
 
-		if (error) {
-			console.error('Ошибка при обновлении рейтинга:', error);
+		if (updateError) {
+			console.error('Ошибка при обновлении рейтинга:', updateError);
 		}
 	};
 
