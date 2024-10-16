@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import styles from './AdminItem.module.css';
 import Image from 'next/image';
@@ -38,12 +38,12 @@ export const AdminItem = (): JSX.Element => {
 		description: '',
 		price: 0,
 	});
+	const [isModalOpen, setIsModalOpen] = useState(false); // Новое состояние для отслеживания модального окна
 
 	// Загрузка карточек из Supabase
 	useEffect(() => {
 		const fetchCards = async () => {
 			try {
-				// Запрос данных из таблицы Products
 				const { data, error } = await supabase
 					.from('Products')
 					.select('*')
@@ -68,6 +68,7 @@ export const AdminItem = (): JSX.Element => {
 	const handleEditClick = (index: number) => {
 		setEditingIndex(index);
 		setEditForm(cards[index]);
+		setIsModalOpen(true); // Открываем модальное окно
 	};
 
 	// Обновление формы редактирования
@@ -83,9 +84,9 @@ export const AdminItem = (): JSX.Element => {
 				const updatedCard = { ...editForm };
 
 				const { error } = await supabase
-					.from('Products') // Название таблицы
+					.from('Products')
 					.update(updatedCard)
-					.eq('id', updatedCard.id); // Обновляем запись по ID
+					.eq('id', updatedCard.id);
 
 				if (error) {
 					console.error('Ошибка при обновлении карточки:', error);
@@ -94,6 +95,7 @@ export const AdminItem = (): JSX.Element => {
 					updatedCards[editingIndex] = updatedCard;
 					setCards(updatedCards);
 					setEditingIndex(null);
+					setIsModalOpen(false); // Закрываем модальное окно
 				}
 			} catch (error) {
 				if (error instanceof Error) {
@@ -109,9 +111,9 @@ export const AdminItem = (): JSX.Element => {
 	const handleDeleteClick = async (id: number) => {
 		try {
 			const { error } = await supabase
-				.from('Products') // Название таблицы
+				.from('Products')
 				.delete()
-				.eq('id', id); // Удаляем запись по ID
+				.eq('id', id);
 
 			if (error) {
 				console.error('Ошибка при удалении карточки:', error);
@@ -126,6 +128,15 @@ export const AdminItem = (): JSX.Element => {
 			}
 		}
 	};
+
+	// Отключение скролла при открытии модального окна
+	useEffect(() => {
+		if (isModalOpen) {
+			document.body.style.overflow = 'hidden'; // Отключаем скролл
+		} else {
+			document.body.style.overflow = ''; // Включаем скролл обратно
+		}
+	}, [isModalOpen]);
 
 	if (loading) {
 		return <div>Загрузка...</div>;
@@ -155,6 +166,7 @@ export const AdminItem = (): JSX.Element => {
 				<div className={styles.modal_overlay} onClick={(e) => {
 					if (e.target === e.currentTarget) {
 						setEditingIndex(null);
+						setIsModalOpen(false); // Закрываем модальное окно
 					}
 				}}>
 					<div className={styles.modal}>
@@ -201,7 +213,10 @@ export const AdminItem = (): JSX.Element => {
 							/>
 							<div className={styles.btns}>
 								<Button appearance='primary' onClick={handleSaveClick}>Сохранить</Button>
-								<Button appearance='primary' onClick={() => setEditingIndex(null)}>Отмена</Button>
+								<Button appearance='primary' onClick={() => {
+									setEditingIndex(null);
+									setIsModalOpen(false); // Закрываем модальное окно
+								}}>Отмена</Button>
 							</div>
 						</div>
 					</div>
@@ -209,4 +224,4 @@ export const AdminItem = (): JSX.Element => {
 			)}
 		</div >
 	);
-}
+};

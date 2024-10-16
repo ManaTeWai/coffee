@@ -14,7 +14,8 @@
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.20",
     "@mui/system": "^5.15.20",
-    "@supabase/supabase-js": "^2.45.1",
+    "@supabase/supabase-js": "^2.45.4",
+    "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "classnames": "^2.5.1",
     "date-fns": "^3.6.0",
@@ -22,10 +23,12 @@
     "next": "^14.2.13",
     "nodemailer": "^6.9.13",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
+    "@types/bcrypt": "^5.0.2",
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^22.5.5",
     "@types/nodemailer": "^6.4.15",
@@ -34,6 +37,7 @@
     "@types/react-input-mask": "^3.0.5",
     "@types/react-slick": "^0.23.13",
     "@types/react-text-mask": "^5.4.14",
+    "@types/uuid": "^10.0.0",
     "eslint": "^8",
     "eslint-config-next": "^0.2.4",
     "stylelint": "^16.8.2",
