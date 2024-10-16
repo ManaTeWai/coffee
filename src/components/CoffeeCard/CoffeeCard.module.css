@@ -78,7 +78,7 @@
 
 	content: '';
 	transform: translateX(-100%);
-	animation: loadingAnimation 1.5s infinite;
+	animation: loading-animation 1.5s infinite;
 
 	background: linear-gradient(90deg,
 			rgb(255 255 255 / 0%) 0%,
@@ -86,7 +86,7 @@
 			rgb(255 255 255 / 0%) 100%);
 }
 
-@keyframes loadingAnimation {
+@keyframes loading-animation {
 	0% {
 		transform: translateX(-100%);
 	}

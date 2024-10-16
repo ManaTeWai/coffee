@@ -129,6 +129,7 @@
 
   .footer_menu {
     align-items: center;
+    flex-direction: column;
   }
 
   .menu {
@@ -139,10 +140,6 @@
 
   .sale__unit .btn {
     margin: auto;
-  }
-
-  .footer_menu {
-    flex-direction: column;
   }
 
   .copyright {
