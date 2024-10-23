@@ -8,7 +8,18 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/utils/supabase';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/system';
-import { Card } from '@/utils/products'
+import { Card } from '@/utils/products';
+
+// Компонент скелета карточки
+const SkeletonCard = () => {
+	return (
+		<div className={styles.card}>
+			<div className={styles.imagePlaceholder}></div>
+			<div className={styles.text_skeleton}></div>
+			<div className={styles.skeleton}></div>
+		</div>
+	);
+};
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
 	marginBottom: '10px',
@@ -38,9 +49,8 @@ export const AdminItem = (): JSX.Element => {
 		description: '',
 		price: 0,
 	});
-	const [isModalOpen, setIsModalOpen] = useState(false); // Новое состояние для отслеживания модального окна
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
-	// Загрузка карточек из Supabase
 	useEffect(() => {
 		const fetchCards = async () => {
 			try {
@@ -64,20 +74,17 @@ export const AdminItem = (): JSX.Element => {
 		fetchCards();
 	}, []);
 
-	// Обработка нажатия на кнопку "Редактировать"
 	const handleEditClick = (index: number) => {
 		setEditingIndex(index);
 		setEditForm(cards[index]);
-		setIsModalOpen(true); // Открываем модальное окно
+		setIsModalOpen(true);
 	};
 
-	// Обновление формы редактирования
 	const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		const { name, value } = e.target;
 		setEditForm(prev => ({ ...prev, [name]: name === 'price' ? Number(value) : value }));
 	};
 
-	// Обработка нажатия на кнопку "Сохранить"
 	const handleSaveClick = async () => {
 		if (editingIndex !== null) {
 			try {
@@ -95,7 +102,7 @@ export const AdminItem = (): JSX.Element => {
 					updatedCards[editingIndex] = updatedCard;
 					setCards(updatedCards);
 					setEditingIndex(null);
-					setIsModalOpen(false); // Закрываем модальное окно
+					setIsModalOpen(false);
 				}
 			} catch (error) {
 				if (error instanceof Error) {
@@ -107,7 +114,6 @@ export const AdminItem = (): JSX.Element => {
 		}
 	};
 
-	// Обработка нажатия на кнопку "Удалить"
 	const handleDeleteClick = async (id: number) => {
 		try {
 			const { error } = await supabase
@@ -129,17 +135,23 @@ export const AdminItem = (): JSX.Element => {
 		}
 	};
 
-	// Отключение скролла при открытии модального окна
 	useEffect(() => {
 		if (isModalOpen) {
-			document.body.style.overflow = 'hidden'; // Отключаем скролл
+			document.body.style.overflow = 'hidden';
 		} else {
-			document.body.style.overflow = ''; // Включаем скролл обратно
+			document.body.style.overflow = '';
 		}
 	}, [isModalOpen]);
 
+	// Если загрузка идет, показываем скелеты карточек
 	if (loading) {
-		return <div>Загрузка...</div>;
+		return (
+			<div className={styles.cardContainer}>
+				{Array.from({ length: 6 }).map((_, index) => (
+					<SkeletonCard key={index} />
+				))}
+			</div>
+		);
 	}
 
 	return (
@@ -166,7 +178,7 @@ export const AdminItem = (): JSX.Element => {
 				<div className={styles.modal_overlay} onClick={(e) => {
 					if (e.target === e.currentTarget) {
 						setEditingIndex(null);
-						setIsModalOpen(false); // Закрываем модальное окно
+						setIsModalOpen(false);
 					}
 				}}>
 					<div className={styles.modal}>
@@ -215,13 +227,13 @@ export const AdminItem = (): JSX.Element => {
 								<Button appearance='primary' onClick={handleSaveClick}>Сохранить</Button>
 								<Button appearance='primary' onClick={() => {
 									setEditingIndex(null);
-									setIsModalOpen(false); // Закрываем модальное окно
+									setIsModalOpen(false);
 								}}>Отмена</Button>
 							</div>
 						</div>
 					</div>
 				</div>
 			)}
-		</div >
+		</div>
 	);
 };

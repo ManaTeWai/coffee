@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
+
 	const productId = parseInt(params.id, 10);
 
 	const { data: product, error } = await supabase
