@@ -10,7 +10,7 @@
 .menu {
   padding: 10px 15%;
 
-  background-color: #462b0e;
+  background-color: var(--primary-color);
 }
 
 .nav a {

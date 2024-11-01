@@ -1,3 +1,11 @@
+:root {
+  --primary-color: #754B1E;
+  --secondary-color: #462b0e;
+  --accent-color: #FF5733;
+  --background-color: #FFF;
+  --text-color: black;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,9 +34,9 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: rgb(255 255 255);
+  background: var(--background-color);
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #462b0e;
+  background-color: var(--primary-color);
 }

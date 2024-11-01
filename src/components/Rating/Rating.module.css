@@ -1,5 +1,5 @@
 .filled {
-  fill: #462b0e;
+  fill: var(--primary-color);
 }
 
 .Star {

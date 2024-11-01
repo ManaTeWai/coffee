@@ -18,11 +18,7 @@
 .footer {
   padding: 10px 15%;
 
-  background-color: #462b0e;
-}
-
-.footer__img {
-  background-image: url("/img/bg.png");
+  background-color: var(--primary-color);
 }
 
 .footer_menu {
@@ -50,11 +46,11 @@
   transition: all 300ms;
   text-decoration: none;
 
-  color: #814e17;
+  color: var(--text-color);
 }
 
 .link:hover {
-  color: #cc7a22;
+  color: var(--secondary-color);
 }
 
 .social {
@@ -82,7 +78,7 @@
 }
 
 .sale {
-  background-color: #392108;
+  background-color: var(--secondary-color);
 }
 
 .sale__unit {
