@@ -1,6 +1,6 @@
 {
   "name": "coffee",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -38,8 +38,8 @@
     "@types/react-slick": "^0.23.13",
     "@types/react-text-mask": "^5.4.14",
     "@types/uuid": "^10.0.0",
-    "eslint": "^8",
-    "eslint-config-next": "^0.2.4",
+    "eslint": "^9.13.0",
+    "eslint-config-next": "^15.0.2",
     "stylelint": "^16.8.2",
     "stylelint-config-standard": "^36.0.0",
     "stylelint-order": "^6.0.4",
