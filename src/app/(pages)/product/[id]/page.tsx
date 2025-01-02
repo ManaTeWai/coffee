@@ -5,20 +5,19 @@ import styles from './page.module.css';
 import { Htag, P, RatingState } from '@/components';
 import { createClient } from '@supabase/supabase-js';
 
-
 // Создайте клиент Supabase
 const supabase = createClient(
 	process.env.NEXT_PUBLIC_SUPABASE_URL as string,
 	process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
 );
 
-type ProductPageProps = {
+type PageProps = {
 	params: {
 		id: string;
 	};
 };
 
-export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
 	const productId = parseInt(params.id, 10);
 
 	const { data: product, error } = await supabase
@@ -33,8 +32,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 	};
 }
 
-export default async function ProductPage({ params }: ProductPageProps) {
-
+export default async function ProductPage({ params }: PageProps) {
 	const productId = parseInt(params.id, 10);
 
 	const { data: product, error } = await supabase
