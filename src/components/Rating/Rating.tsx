@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type JSX } from 'react';
 import { RatingProps } from './Rating.Props';
 import styles from './Rating.module.css';
 import StarIcon from './star.svg';

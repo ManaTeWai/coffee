@@ -2,6 +2,8 @@ import { PProps } from './P.Props';
 import styles from './P.module.css';
 import cn from 'classnames';
 
+import type { JSX } from "react";
+
 export const P = ({ size = 'medium', children, className, ...props}: PProps): JSX.Element => {
 	return(
 		<p 

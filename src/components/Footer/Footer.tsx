@@ -1,5 +1,4 @@
-'use client'
-
+'use client';
 import styles from './Footer.module.css';
 import { FooterProps } from './Footer.Props';
 import Link from 'next/link';
@@ -8,6 +7,8 @@ import Image from 'next/image';
 import { P, Htag, Button } from '../'
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/system';
+
+import type { JSX } from "react";
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
 	marginBottom: '10px',

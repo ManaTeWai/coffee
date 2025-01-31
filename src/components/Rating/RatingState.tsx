@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type JSX } from 'react';
 import { Rating } from './Rating';
 import { createClient } from '@supabase/supabase-js';
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, type JSX } from 'react';
 import { Htag, Button, P } from '../';
 import styles from './FeedbackForm.module.css';
 import TextField from '@mui/material/TextField';

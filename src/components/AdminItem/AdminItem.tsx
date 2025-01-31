@@ -4,7 +4,7 @@ import styles from './AdminItem.module.css';
 import Image from 'next/image';
 import { Htag, P, Button } from '..';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type JSX } from 'react';
 import { supabase } from '@/utils/supabase';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/system';

@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './Header.module.css';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, type JSX } from 'react';
 import { HeaderProps } from './Header.Props';
 import Link from 'next/link';
 

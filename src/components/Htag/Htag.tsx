@@ -2,6 +2,8 @@ import { HtagProps } from './Htag.props';
 import styles from './Htag.module.css';
 import cn from 'classnames';
 
+import type { JSX } from "react";
+
 export const Htag = ({ tag, children, className }: HtagProps): JSX.Element => {
 	switch (tag) {
 		case 'h1':

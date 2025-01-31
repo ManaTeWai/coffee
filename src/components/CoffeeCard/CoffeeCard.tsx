@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Htag, P } from '..';
 import styles from './CoffeeCard.module.css';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type JSX } from 'react';
 import { supabase } from '@/utils/supabase';
 
 export const CoffeeCard = (): JSX.Element => {

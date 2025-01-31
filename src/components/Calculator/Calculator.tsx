@@ -3,7 +3,7 @@
 import styles from './Calculator.module.css';
 import { styled } from '@mui/system';
 import { Htag, P, Button } from '..';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type JSX } from 'react';
 import Slider from '@mui/material/Slider';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';

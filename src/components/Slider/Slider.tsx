@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, type JSX } from 'react';
 import styles from './Slider.module.css';
 import Image from 'next/image';
 
