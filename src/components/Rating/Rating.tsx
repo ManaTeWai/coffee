@@ -7,6 +7,7 @@ import StarIcon from './star.svg';
 import cn from 'classnames';
 import { createClient } from '@supabase/supabase-js';
 
+// Инициализация Supabase клиента
 const supabase = createClient(
 	process.env.NEXT_PUBLIC_SUPABASE_URL as string,
 	process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
@@ -15,18 +16,20 @@ const supabase = createClient(
 export const Rating = ({ rating, setRating, productId, isEditable = false, ...props }: RatingProps): JSX.Element => {
 	const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 
+	// Конструируем массив звезд при изменении рейтинга
 	useEffect(() => {
 		constructRating(rating);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [rating]);
 
+	// Генерация рейтинговых звезд
 	const constructRating = (currentRating: number) => {
-		const updatedArray = ratingArray.map((r: JSX.Element, i: number) => (
+		const updatedArray = new Array(5).fill(null).map((_, i) => (
 			<StarIcon
 				key={i}
-				className={cn(styles.Star, {
+				className={cn(styles.star, {
 					[styles.filled]: i < currentRating,
-					[styles.editable]: isEditable
+					[styles.editable]: isEditable,
 				})}
 				onMouseEnter={() => changeDisplay(i + 1)}
 				onClick={() => handleClick(i + 1)}
@@ -35,37 +38,33 @@ export const Rating = ({ rating, setRating, productId, isEditable = false, ...pr
 		setRatingArray(updatedArray);
 	};
 
+	// Изменение отображения рейтинга при наведении
 	const changeDisplay = (i: number) => {
-		if (!isEditable) {
-			return;
-		}
+		if (!isEditable) return;
 		constructRating(i);
 	};
 
+	// Обработка клика по звезде
 	const handleClick = async (i: number) => {
-		if (!isEditable || !setRating) {
-			return;
-		}
+		if (!isEditable || !setRating) return;
 
-		// Проверка, оставлял ли пользователь оценку ранее
+		// Проверяем, оставлял ли пользователь рейтинг ранее
 		const userRated = localStorage.getItem(`rated_${productId}`);
 		if (userRated) {
 			alert('Вы уже оставили оценку!');
 			return;
 		}
 
-		// Сохраняем оценку в localStorage, чтобы пользователь не мог проголосовать повторно
+		// Сохраняем выбор пользователя
 		localStorage.setItem(`rated_${productId}`, String(i));
-
 		setRating(i);
 
-		// Проверяем наличие productId перед обновлением
 		if (!productId) {
 			console.error('Product ID отсутствует');
 			return;
 		}
 
-		// Получаем текущие данные по рейтингу
+		// Получение текущего рейтинга и количества голосов
 		const { data: productData, error: fetchError } = await supabase
 			.from('Products')
 			.select('rating, ratings_count')
@@ -83,7 +82,7 @@ export const Rating = ({ rating, setRating, productId, isEditable = false, ...pr
 		const newRatingsCount = ratingsCount + 1;
 		const newRating = ((currentRating * ratingsCount) + i) / newRatingsCount;
 
-		// Обновляем рейтинг и количество голосов в базе данных
+		// Обновляем данные в базе
 		const { error: updateError } = await supabase
 			.from('Products')
 			.update({ rating: newRating, ratings_count: newRatingsCount })
@@ -94,9 +93,12 @@ export const Rating = ({ rating, setRating, productId, isEditable = false, ...pr
 		}
 	};
 
+	// Рендеринг компонента
 	return (
 		<div {...props} onMouseLeave={() => changeDisplay(rating)}>
-			{ratingArray.map((r, i) => (<span key={i}>{r}</span>))}
+			{ratingArray.map((r, i) => (
+				<span key={i}>{r}</span>
+			))}
 		</div>
 	);
 };
