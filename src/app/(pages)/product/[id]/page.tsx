@@ -11,7 +11,6 @@ const supabase = createClient(
 );
 
 type ProductPageProps = {
-<<<<<<< HEAD
 	params: { id: string };
 };
 
@@ -24,18 +23,6 @@ export async function generateMetadata(
     const productId = parseInt(params.id, 10);
 
     const { data: product } = await supabase
-=======
-	params: Promise<{
-		id: string;
-	}>;
-};
-
-export async function generateMetadata(props: ProductPageProps): Promise<Metadata> {
-    const params = await props.params;
-    const productId = parseInt(params.id, 10);
-
-    const { data: product, error } = await supabase
->>>>>>> 96389e18d7ace7010b98dd237c02ecf7b0bff3ec
 		.from('Products')
 		.select('*')
 		.eq('id', productId)
@@ -47,7 +34,6 @@ export async function generateMetadata(props: ProductPageProps): Promise<Metadat
 	};
 }
 
-<<<<<<< HEAD
 export async function generateStaticParams() {
 	const { data: products } = await supabase.from('Products').select('id');
 
@@ -64,13 +50,6 @@ export default async function ProductPage(
     const params = await props.params;
     const productId = parseInt(params.id, 10);
 
-=======
-// Основной экспорт страницы
-export default async function ProductPage(props: ProductPageProps) {
-    const params = await props.params;
-    const productId = parseInt(params.id, 10);
-
->>>>>>> 96389e18d7ace7010b98dd237c02ecf7b0bff3ec
     const { data: product, error } = await supabase
 		.from('Products')
 		.select('*')
