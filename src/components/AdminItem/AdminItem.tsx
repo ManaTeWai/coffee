@@ -38,6 +38,25 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
 	},
 }));
 
+const uploadImage = async (file: File): Promise<string> => {
+	const formData = new FormData();
+	formData.append('file', file);
+
+	const response = await fetch('/api/upload', {
+		method: 'POST',
+		body: formData,
+	});
+
+	if (!response.ok) {
+		throw new Error('Ошибка загрузки изображения');
+	}
+
+	const data = await response.json();
+	return data.imageUrl; // Вернуть URL загруженного изображения
+};
+
+
+
 export const AdminItem = (): JSX.Element => {
 	const [cards, setCards] = useState<Card[]>([]);
 	const [loading, setLoading] = useState(true);
@@ -80,10 +99,17 @@ export const AdminItem = (): JSX.Element => {
 		setIsModalOpen(true);
 	};
 
-	const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-		const { name, value } = e.target;
-		setEditForm(prev => ({ ...prev, [name]: name === 'price' ? Number(value) : value }));
+	const handleFormChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+		const { name, value, files } = e.target as HTMLInputElement;
+
+		if (name === 'imageUrl' && files && files[0]) {
+			const imageUrl = await uploadImage(files[0]);
+			setEditForm(prev => ({ ...prev, imageUrl }));
+		} else {
+			setEditForm(prev => ({ ...prev, [name]: name === 'price' ? Number(value) : value }));
+		}
 	};
+
 
 	const handleSaveClick = async () => {
 		if (editingIndex !== null) {
@@ -187,12 +213,13 @@ export const AdminItem = (): JSX.Element => {
 							<StyledTextField
 								fullWidth
 								variant="filled"
-								type="text"
+								type="file"
 								name="imageUrl"
-								label="URL изображения"
-								value={editForm.imageUrl}
+								label="Загрузить изображение"
 								onChange={handleFormChange}
-								placeholder="URL изображения"
+								InputLabelProps={{
+									shrink: true,
+								}}
 							/>
 							<StyledTextField
 								fullWidth

@@ -5,7 +5,6 @@ import styles from './page.module.css';
 import { Htag, P, RatingState } from '@/components';
 import { createClient } from '@supabase/supabase-js';
 
-// Создайте клиент Supabase
 const supabase = createClient(
 	process.env.NEXT_PUBLIC_SUPABASE_URL as string,
 	process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
@@ -17,7 +16,6 @@ type ProductPageProps = {
 	};
 };
 
-// Функция для генерации метаданных
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
 	const productId = parseInt(params.id, 10);
 

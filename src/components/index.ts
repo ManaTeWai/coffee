@@ -11,3 +11,4 @@ export * from './AdminItem/AdminItem';
 export * from './Calculator/Calculator';
 export * from './Button/Button';
 export * from './Rating/RatingState';
+export * from './ReviewItem/ReviewItem';
