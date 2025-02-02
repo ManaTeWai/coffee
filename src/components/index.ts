@@ -13,3 +13,4 @@ export * from './Button/Button';
 export * from './Rating/RatingState';
 export * from './Rating/Rating';
 export * from './ReviewItem/ReviewItem';
+export * from './TelegramProvider/TelegramProvider';

@@ -110,7 +110,7 @@
 
     padding: 0 20px;
 
-    background-color: #462b0e;
+    background-color: var(--primary-color);
   }
 
   .mobile_menu_cont .logo {
