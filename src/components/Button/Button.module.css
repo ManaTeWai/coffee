@@ -1,5 +1,4 @@
 .primary {
-	width: 150px;
 	padding: 1%;
 
 	cursor: pointer;
@@ -10,26 +9,25 @@
 
 	border: var(--primary-color) 1px solid;
 	border-radius: 10px;
-	background-color: white;
+	background-color: var(--background-color);
 
 	font-size: 24px;
 	appearance: none;
 }
 
 .primary:hover {
-	color: white;
+	color: var(--background-color);
 	background-color: var(--primary-color);
 }
 
 .ghost {
-	width: 150px;
 	padding: 1%;
 
 	cursor: pointer;
 	transition: all 300ms;
 	text-align: center;
 
-	color: white;
+	color: var(--background-color);
 	border-radius: 10px;
 
 	background-color: var(--primary-color);

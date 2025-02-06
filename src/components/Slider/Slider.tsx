@@ -87,7 +87,7 @@ export const Slider = ({ slides, slides_mobile, ...props }: SliderProps): JSX.El
 							alt={slide.title}
 							className={styles.image}
 							fill
-							style={{ objectFit: 'cover' }}
+							style={{ objectFit: 'fill' }}
 						/>
 					</div>
 				))}

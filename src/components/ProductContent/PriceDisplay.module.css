@@ -3,5 +3,5 @@
 
 	color: white !important;
 	border-radius: 15px;
-	background-color: chocolate;
+	background-color: var(--accent-color);
 }
