@@ -1,6 +1,5 @@
 import { Calculator, Htag } from '@/components';
 import styles from '@/app/page.module.css'
-import Link from 'next/link';
 import { Metadata } from 'next';
 import Image from 'next/image';
 

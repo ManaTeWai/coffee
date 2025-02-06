@@ -1,9 +1,11 @@
 .balance {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
     margin-bottom: 20px;
+    padding: 20px;
+
     text-align: center;
+
+    border-radius: 8px;
+    background-color: #f9f9f9;
 }
 
 .chart {
@@ -16,14 +18,17 @@
 
 .table {
     width: 100%;
+
     border-collapse: collapse;
 }
 
 .table th,
 .table td {
     padding: 10px;
-    border: 1px solid #ddd;
+
     text-align: left;
+
+    border: 1px solid #ddd;
 }
 
 .table th {

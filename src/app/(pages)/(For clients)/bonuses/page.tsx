@@ -15,9 +15,9 @@ export default function Bonuses() {
         labels: [],
         datasets: [],
     });
-    // Загрузка данных (имитация API)
+
+    
     useEffect(() => {
-        // Загружаем данные о бонусах
         const fetchBonusData = async () => {
             // Имитация запроса к API
             const response = await fetch('/api/bonus');

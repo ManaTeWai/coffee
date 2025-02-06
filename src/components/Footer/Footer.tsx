@@ -1,4 +1,5 @@
 'use client';
+
 import styles from './Footer.module.css';
 import { FooterProps } from './Footer.Props';
 import Link from 'next/link';

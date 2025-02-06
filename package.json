@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "cross-env NODE_OPTIONS='--trace-deprecation' next build",
     "start": "next start",
     "lint": "next lint",
     "stylelint": "stylelint \"**/*.css\" --fix"
@@ -42,6 +42,7 @@
     "@types/react-slick": "^0.23.13",
     "@types/react-text-mask": "^5.4.14",
     "@types/uuid": "^10.0.0",
+    "cross-env": "^7.0.3",
     "eslint": "^9.13.0",
     "eslint-config-next": "15.1.6",
     "stylelint": "^16.8.2",
