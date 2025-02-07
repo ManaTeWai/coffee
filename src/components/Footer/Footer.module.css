@@ -51,7 +51,7 @@
   transition: all 300ms;
   text-decoration: underline;
 
-  color: var(--text-color);
+  color: var(--background-color);
 }
 
 .link:hover {
