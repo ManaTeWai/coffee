@@ -1,9 +1,9 @@
 :root {
-  --primary-color: #754B1E;
-  --secondary-color: #462b0e;
-  --accent-color: #FF5733;
-  --background-color: #FFF;
-  --text-color: black;
+  --primary-color: #6F4E37; /* Основной цвет */
+  --secondary-color: #A67C52; /* Вторичный цвет */
+  --accent-color: #D4A574; /* Акцентный цвет */
+  --background-color: #F5F5F5; /* Фоновый цвет */
+  --text-color: #3E3E3E; /* Цвет текста */
 }
 
 * {
