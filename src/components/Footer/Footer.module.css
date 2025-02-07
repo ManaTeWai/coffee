@@ -79,7 +79,7 @@
 .copy_link {
   text-decoration: none;
 
-  color: white;
+  color: white !important;
 }
 
 @media (width <= 768px) {
