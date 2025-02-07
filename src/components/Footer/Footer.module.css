@@ -72,14 +72,15 @@
 
   padding-top: 10px;
 
-  color: white;
-  border-top: 1px solid white;
+  border-top: 1px solid var(--background-color);
 }
 
-.copy_link {
-  text-decoration: none;
+.copyright p {
+  color: var(--background-color) !important;
+}
 
-  color: white !important;
+.copyright a {
+  color: var(--background-color) !important;
 }
 
 @media (width <= 768px) {

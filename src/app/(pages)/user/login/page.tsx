@@ -6,14 +6,13 @@ import { useRouter } from 'next/navigation';
 import TextField from '@mui/material/TextField';
 import { Button, Htag, P } from '@/components';
 import { styled } from '@mui/system';
-import styles from './page.module.css'
-import bcrypt from 'bcryptjs';
+import styles from './page.module.css';
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
 	marginBottom: '10px',
 	'& .MuiFilledInput-root': {
 		'&:before': {
-			borderBottomColor: 'rgba(0, 0, 0, 0.42)',
+			borderBottomColor: 'rgba(166, 124, 82, 0.42)',
 		},
 		'&:after': {
 			borderBottomColor: '#754B1E',
@@ -27,31 +26,26 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
 }));
 
 export default function Login() {
-	const [username, setUsername] = useState('');
+	const [email, setEmail] = useState(''); // Используем email вместо username
 	const [password, setPassword] = useState('');
 	const [errorMessage, setErrorMessage] = useState('');
 	const router = useRouter();
 
 	const handleLogin = async () => {
 		try {
-			const { data, error } = await supabase
-				.from('Admins')
-				.select('id, password_hash')
-				.eq('username', username)
-				.single();
+			// Вход через Supabase
+			const { data, error } = await supabase.auth.signInWithPassword({
+				email,
+				password,
+			});
 
-			if (error || !data) {
-				setErrorMessage('Неправильное имя пользователя или пароль');
+			if (error) {
+				setErrorMessage('Неправильный email или пароль');
 				return;
 			}
 
-			const isMatch = await bcrypt.compare(password, data.password_hash);
-			if (isMatch) {
-				// Перенаправляем на страницу администратора
-				router.push('/admin');
-			} else {
-				setErrorMessage('Неправильное имя пользователя или пароль');
-			}
+			// Если вход успешен, перенаправляем на страницу администратора
+			router.push('/admin');
 		} catch (error) {
 			console.error('Ошибка при входе:', error);
 			setErrorMessage('Произошла ошибка. Пожалуйста, попробуйте снова.');
@@ -63,11 +57,11 @@ export default function Login() {
 			<div className={styles.container}>
 				<Htag tag='h1'>Форма авторизации</Htag>
 				<StyledTextField
-					label="Имя пользователя"
+					label="Email"
 					variant="filled"
 					fullWidth
-					value={username}
-					onChange={(e) => setUsername(e.target.value)}
+					value={email}
+					onChange={(e) => setEmail(e.target.value)}
 				/>
 				<StyledTextField
 					label="Пароль"
@@ -84,4 +78,4 @@ export default function Login() {
 			</div>
 		</div>
 	);
-};
+}

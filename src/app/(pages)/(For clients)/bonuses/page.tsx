@@ -1,22 +1,22 @@
 'use client';
 
-import { Htag, Button } from '@/components';
+import { Htag, Button, P } from '@/components';
 import { useState, useEffect } from 'react';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ChartData  } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ChartData } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import styles from './bonuses.module.css';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 export default function Bonuses() {
-	const [bonusBalance, setBonusBalance] = useState(0);
+    const [bonusBalance, setBonusBalance] = useState(0);
     const [bonusHistory, setBonusHistory] = useState<{ date: string; amount: number; source: string }[]>([]); // История начислений
     const [chartData, setChartData] = useState<ChartData<'bar'>>({
         labels: [],
         datasets: [],
     });
 
-    
+
     useEffect(() => {
         const fetchBonusData = async () => {
             // Имитация запроса к API
@@ -27,8 +27,8 @@ export default function Bonuses() {
             setBonusHistory(data.history);
 
             // Подготовка данных для графика
-			const labels = data.history?.map((entry: { date: string }) => entry.date) || [];
-			const amounts = data.history?.map((entry: { amount: number }) => entry.amount) || [];			
+            const labels = data.history?.map((entry: { date: string }) => entry.date) || [];
+            const amounts = data.history?.map((entry: { amount: number }) => entry.amount) || [];
 
             setChartData({
                 labels,
@@ -36,8 +36,8 @@ export default function Bonuses() {
                     {
                         label: 'Начислено бонусов',
                         data: amounts,
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(166, 124, 82, 0.2)',
+                        borderColor: 'rgba(166, 124, 82, 1)',
                         borderWidth: 1,
                     },
                 ],
@@ -57,7 +57,7 @@ export default function Bonuses() {
 
             {/* Текущий баланс */}
             <div className={styles.balance}>
-                <Htag tag="h2">Текущий баланс: {bonusBalance} бонусов</Htag>
+                <P size="large">Текущий баланс: <span className={styles.balanceValue}>{bonusBalance} бонусов</span></P>
             </div>
 
             {/* График начислений */}
@@ -103,10 +103,11 @@ export default function Bonuses() {
                 </table>
             </div>
 
-            {/* Кнопка для использования бонусов */}
-            <Button appearance='primary' onClick={handleUseBonus}>
-                Использовать бонусы
-            </Button>
+            <div className={styles.button_cont}>
+                <Button appearance='primary' onClick={handleUseBonus}>
+                    Использовать бонусы
+                </Button>
+            </div>
         </div>
     );
 }
