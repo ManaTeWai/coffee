@@ -48,7 +48,7 @@ export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
 					</div>
 				</div>
 				<div className={styles.copyright}>
-					<P size="large">© 2022 - {format(new Date(), 'yyyy')} КофеТайм. Все права защищены.</P>
+					<P size='large'>© 2022 - {format(new Date(), 'yyyy')} КофеТайм. Все права защищены.</P>
 					<P size='large'><Link className={styles.link} href="/policy">Политика конфиденциальности</Link></P>
 				</div>
 			</div>
