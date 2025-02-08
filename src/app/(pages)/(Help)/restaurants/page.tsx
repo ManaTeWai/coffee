@@ -14,19 +14,19 @@ export default function Restaurants() {
 
 			<div className={styles.restaurants}>
 				<div className={styles.restaurantCard}>
-					<Htag tag="h2">Ресторан "Кофе Тайм" (Центр)</Htag>
+					<Htag tag="h2">Ресторан &quot;Кофе Тайм&quot; (Центр)</Htag>
 					<P size="medium">Адрес: ул. Центральная, 1</P>
 					<P size="medium">Телефон: +7 (123) 456-78-90</P>
 					<P size="medium">Часы работы: 10:00 - 22:00</P>
 				</div>
 				<div className={styles.restaurantCard}>
-					<Htag tag="h2">Ресторан "Кофе Тайм" (Северный)</Htag>
+					<Htag tag="h2">Ресторан &quot;Кофе Тайм&quot; (Северный)</Htag>
 					<P size="medium">Адрес: ул. Северная, 10</P>
 					<P size="medium">Телефон: +7 (123) 456-78-91</P>
 					<P size="medium">Часы работы: 10:00 - 22:00</P>
 				</div>
 				<div className={styles.restaurantCard}>
-					<Htag tag="h2">Ресторан "Кофе Тайм" (Южный)</Htag>
+					<Htag tag="h2">Ресторан &quot;Кофе Тайм&quot; (Южный)</Htag>
 					<P size="medium">Адрес: ул. Южная, 20</P>
 					<P size="medium">Телефон: +7 (123) 456-78-92</P>
 					<P size="medium">Часы работы: 10:00 - 22:00</P>
