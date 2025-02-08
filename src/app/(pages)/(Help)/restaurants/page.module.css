@@ -1,0 +1,23 @@
+.restaurants {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 20px;
+	margin-top: 20px;
+}
+
+.restaurantCard {
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+}
+
+.map {
+	margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+	.restaurants {
+		grid-template-columns: 1fr;
+	}
+}

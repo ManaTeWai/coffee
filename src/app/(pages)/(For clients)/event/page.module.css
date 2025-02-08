@@ -1,0 +1,30 @@
+.promotions {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 20px;
+	padding: 20px;
+}
+
+.promotion_card {
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	text-align: center;
+}
+
+.promotion_card img {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+}
+
+.promotion_card button {
+	margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+	.promotions {
+		grid-template-columns: 1fr;
+	}
+}

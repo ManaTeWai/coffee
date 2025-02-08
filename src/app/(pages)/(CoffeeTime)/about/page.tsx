@@ -4,6 +4,7 @@ import styles from '@/app/page.module.css';
 
 export const metadata: Metadata = {
   title: "Кофе Тайм || О нас",
+  description: "Политика конфиденциальности CoffeeTime",
 };
 
 export default function About() {

@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 import styles from '@/app/page.module.css';
 
 export const metadata: Metadata = {
-	title: "Кофе Тайм || Review",
-	description: "Coffee to portfolio",
+	title: "Кофе Тайм || Отзывы",
+	description: "Отзывы CoffeeTime",
 };
 
 export default function Review() {
 	return (
 		<div className={styles.page_wrapper}>
-			<Htag tag="h1">Review</Htag>
+			<Htag tag="h1">Напишите свой отзыв</Htag>
 			<ReviewItem />
 		</div>
 	);

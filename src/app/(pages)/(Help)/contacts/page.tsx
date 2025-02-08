@@ -1,6 +1,11 @@
 import { Htag, FeedbackForm, P } from '@/components';
 import styles from '@/app/page.module.css'
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: "Кофе Тайм || Контакты",
+};
 
 export default function Contacts() {
 	return (

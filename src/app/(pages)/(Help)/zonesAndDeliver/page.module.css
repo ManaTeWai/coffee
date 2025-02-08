@@ -1,0 +1,20 @@
+.deliveryInfo {
+	margin-bottom: 30px;
+}
+
+.conditions {
+	margin-bottom: 30px;
+}
+
+.list {
+	list-style: none;
+	padding: 0;
+}
+
+.list li {
+	margin-bottom: 10px;
+}
+
+.orderButton {
+	text-align: center;
+}

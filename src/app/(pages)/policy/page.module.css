@@ -1,0 +1,13 @@
+.privacyContent {
+	margin-top: 20px;
+}
+
+.privacyContent ul {
+	list-style: disc;
+	padding-left: 20px;
+	margin-top: 10px;
+}
+
+.privacyContent li {
+	margin-bottom: 8px;
+}

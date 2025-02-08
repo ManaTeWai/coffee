@@ -12,39 +12,39 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
 const StyledSlider = styled(Slider)(({ theme }) => ({
-	color: '#754B1E',
+	color: '#6F4E37',
 	'& .MuiSlider-thumb': {
-		backgroundColor: '#754B1E',
+		backgroundColor: '#6F4E37',
 		'&:hover, &.Mui-focusVisible, &.Mui-active': {
 			boxShadow: '0 0 0 4px rgba(117, 75, 30, 0.42)',
 		},
 	},
 	'& .MuiSlider-track': {
-		backgroundColor: '#754B1E',
+		backgroundColor: '#6F4E37',
 	},
 	'& .MuiSlider-rail': {
-		backgroundColor: '#D3D3D3',
+		backgroundColor: '#A67C52',
 	},
 }));
 
 const CustomRadio = styled(Radio)(({ theme }) => ({
-	color: '#754B1E',
+	color: '#6F4E37',
 	'&.Mui-checked': {
-		color: '#754B1E',
+		color: '#6F4E37',
 	},
 }));
 
 const CustomFormControlLabel = styled(FormControlLabel)(({ theme }) => ({
 	'& .MuiFormControlLabel - label': {
-		color: '#754B1E',
+		color: '#6F4E37',
 		fontSize: '40px',
 	},
 }));
 
 const CustomFormLabel = styled(FormLabel)(({ theme }) => ({
-	color: '#754B1E',
+	color: '#6F4E37',
 	'&.Mui-focused': {
-		color: '#754B1E',
+		color: '#6F4E37',
 	},
 }));
 

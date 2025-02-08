@@ -14,3 +14,4 @@ export * from './Rating/RatingState';
 export * from './Rating/Rating';
 export * from './ReviewItem/ReviewItem';
 export * from './ProductContent/PriceDisplay';
+export * from './PriceList/PriceList';

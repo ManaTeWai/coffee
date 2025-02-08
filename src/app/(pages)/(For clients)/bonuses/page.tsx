@@ -4,7 +4,7 @@ import { Htag, Button, P } from '@/components';
 import { useState, useEffect } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ChartData } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import styles from './bonuses.module.css';
+import styles from './page.module.css';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -83,7 +83,7 @@ export default function Bonuses() {
             {/* История начислений */}
             <div className={styles.history}>
                 <Htag tag="h2">История начислений</Htag>
-                <table className={styles.table}>
+                <table>
                     <thead>
                         <tr>
                             <th>Дата</th>
