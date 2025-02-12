@@ -41,7 +41,7 @@ export const FeedbackForm = ({ source }: FeedbackFormProps): JSX.Element => {
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify({ name, phoneNumber, subject, message }),
+				body: JSON.stringify({ name, phoneNumber, subject, message, source }),
 			});
 
 			if (res.ok) {

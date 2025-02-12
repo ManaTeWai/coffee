@@ -24,7 +24,7 @@ export default function Review() {
 	return (
 		<div className={styles.page_wrapper}>
 			<Htag tag="h1">Напишите свой отзыв</Htag>
-			<FeedbackForm source="Отзыв" />
+			<FeedbackForm source="Отзывы" />
 
 			<Htag tag="h1">Отзывы</Htag>
 			<P size="large">Посмотрите отзывы наших клиентов</P>
