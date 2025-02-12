@@ -7,7 +7,8 @@
 .reviewbox {
 	transition: all ease-in-out 300ms;
 	border-radius: 15px;
-	background-color: rgb(141 141 141 / 35%);
+	background-color: #fff;
+	box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
 	cursor: pointer;
 }
 
@@ -24,7 +25,5 @@
 }
 
 .reviewbox:hover {
-	transform: scale(1.05);
-	background-color: rgba(141, 141, 141, 0.7);
-	box-shadow: 15px 15px 10px -5px rgb(34 60 80 / 20%);
+	box-shadow: 6px 8px 8px rgb(0 0 0 / 30%);
 }
