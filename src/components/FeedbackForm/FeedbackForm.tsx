@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState, type JSX } from 'react';
-import { Htag, Button, P } from '../';
+import { Htag, Button, P } from '..';
 import styles from './FeedbackForm.module.css';
+import { FeedbackFormProps } from './FeedbackForm.Props';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/system';
 
@@ -23,7 +24,7 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
 	},
 }));
 
-export const FeedbackForm = (): JSX.Element => {
+export const FeedbackForm = ({ source }: FeedbackFormProps): JSX.Element => {
 	const [name, setName] = useState('');
 	const [phoneNumber, setPhoneNumber] = useState('');
 	const [subject, setSubject] = useState('');

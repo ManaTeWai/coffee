@@ -15,7 +15,7 @@ export default function Contacts() {
 				<li><P>Номер телефона: <Link href="tel:89885271618">8 988 527 16 18</Link></P></li>
 				<li><P>Почта: <Link href="mailto:maksimts03@gmail.com">maksimts03@gmail.com</Link></P></li>
 			</ul>
-			<FeedbackForm />
+			<FeedbackForm source='Контакты'/>
 			<Htag tag='h1'>Адрес</Htag>
 			<div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
 				<a href="https://yandex.ru/maps/36/stavropol/?utm_medium=mapframe&utm_source=maps" style={{ color: '#eee', fontSize: '12px', position: 'absolute', top: '0px' }}>Ставрополь</a>

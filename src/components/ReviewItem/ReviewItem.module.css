@@ -1,16 +1,22 @@
-.container {
+.reviews {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
-
-	width: 400px;
-	margin: auto;
-
-	text-align: center;
+	gap: 20px;
 }
 
-@media (width <=768px) {
-	.container {
-		width: 100%;
-	}
+.reviewbox {
+	background-color: rgba(141, 141, 141, 0.342);
+	border-radius: 15px;
+	box-shadow: 15px 15px 10px -5px rgba(34, 60, 80, 0.2);
+}
+
+.review {
+	padding: 2% 5%;
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+
+.review img {
+	border-radius: 50%;
 }
