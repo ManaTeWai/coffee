@@ -3,9 +3,10 @@
 }
 
 .privacyContent ul {
-	list-style: disc;
-	padding-left: 20px;
 	margin-top: 10px;
+	padding-left: 20px;
+
+	list-style: disc;
 }
 
 .privacyContent li {

@@ -49,13 +49,12 @@
 
 .link {
   transition: all 300ms;
-  text-decoration: underline;
 
   color: var(--background-color);
 }
 
 .link:hover {
-  color: var(--secondary-color);
+  text-decoration: underline;
 }
 
 .social {

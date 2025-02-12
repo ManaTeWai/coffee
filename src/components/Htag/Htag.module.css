@@ -5,30 +5,33 @@
 .h1 {
   margin: 0;
 
+  color: var(--primary-color);
+
   font-family: 'Brygada 1918', serif;
 
   font-size: 26px;
   font-weight: 500;
   line-height: 35px;
-  color: var(--primary-color);
 }
 
 .h2 {
   margin: 0;
 
+  color: var(--primary-color);
+
   font-family: 'Brygada 1918', serif;
   font-size: 22px;
   font-weight: 500;
   line-height: 30px;
-  color: var(--primary-color);
 }
 
 .h3 {
   margin: 0;
 
+  color: var(--primary-color);
+
   font-family: 'Brygada 1918', serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 27px;
-  color: var(--primary-color);
 }
