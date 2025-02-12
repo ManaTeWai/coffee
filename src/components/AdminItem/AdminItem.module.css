@@ -66,6 +66,14 @@
 	margin-right: 10px;
 }
 
+.price {
+	padding: 5px 10px;
+
+	color: white !important;
+	border-radius: 15px;
+	background-color: var(--accent-color);
+}
+
 @media (width <=768px) {
 	.card {
 		flex-direction: column;

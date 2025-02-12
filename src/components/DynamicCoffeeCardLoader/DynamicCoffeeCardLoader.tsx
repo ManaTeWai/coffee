@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { CoffeeCard } from '..';
 import { fetchMoreProducts } from '@/services/fetchMoreProducts'; // Функция для получения дополнительных продуктов из Supabase
-import { Card } from '@/utils/products'; // Убедитесь, что путь к файлу правильный
+import { Card } from '@/utils/products';
 import styles from './DynamicCoffeeCardLoader.module.css'
 
 export const DynamicCoffeeCardLoader = () => {

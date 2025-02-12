@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import styles from './page.module.css';
 import { Htag, P, RatingState } from '@/components';
 import { createClient } from '@supabase/supabase-js';
-
+import Link from 'next/link';
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL as string,
@@ -40,8 +40,7 @@ export async function generateStaticParams() {
         console.error('Ошибка загрузки продуктов или данные отсутствуют:', error);
         return [];
     }
-
-    return products.map((product) => ({
+    return products?.map((product: { id: number }) => ({
         id: product.id.toString(),
     }));
 }
@@ -54,14 +53,27 @@ export default async function ProductPage(
     const params = await props.params;
     const productId = parseInt(params.id, 10);
 
-    const { data: product, error } = await supabase
+    // Загружаем текущий продукт
+    const { data: product, error: productError } = await supabase
         .from('Products')
         .select('*')
         .eq('id', productId)
         .single();
 
-    if (error || !product) {
+    if (productError || !product) {
+        console.error('Ошибка загрузки продукта:', productError);
         notFound();
+    }
+
+    // Загружаем 4 случайных продукта, исключая текущий
+    const { data: recommendations, error: recommendationsError } = await supabase
+        .from('Products')
+        .select('id, title, imageUrl, price')
+        .not('id', 'eq', productId)
+        .limit(4);
+
+    if (recommendationsError) {
+        console.error('Ошибка загрузки рекомендаций:', recommendationsError);
     }
 
     return (
@@ -85,10 +97,35 @@ export default async function ProductPage(
                         Цена: <span className={styles.price}>{product.price} РУБ.</span>
                     </P>
                 </div>
+                <div className={styles.some_desc}>
+                    <P size="medium">{product.some_desc}</P>
+                </div>
             </div>
-            <div className={styles.some_desc}>
-                <P size="medium">{product.some_desc}</P>
-            </div>
+
+            {recommendations && recommendations.length > 0 && (
+                <div className={styles.recommendations}>
+                    <Htag tag="h2">Так же советуем попробовать</Htag>
+                    <div className={styles.recommendations_grid}>
+                        {recommendations.map((rec) => (
+                            <Link href={`/product/${rec.id}`} key={rec.id} className={styles.link}>
+                                <div key={rec.id} className={styles.recommendation_card}>
+                                    <Image
+                                        className={styles.image}
+                                        src={rec.imageUrl}
+                                        alt={rec.title}
+                                        width={150}
+                                        height={150}
+                                    />
+                                    <P size="medium">{rec.title}</P>
+                                    <P size="large">
+                                        Цена: <span className={styles.price}>{rec.price} РУБ.</span>
+                                    </P>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
