@@ -68,7 +68,7 @@ export default async function ProductPage(
     // Загружаем 4 случайных продукта, исключая текущий
     const { data: recommendations, error: recommendationsError } = await supabase
         .from('Products')
-        .select('id, title, imageUrl, price')
+        .select('id, title, imageUrl, price, description')
         .not('id', 'eq', productId)
         .limit(4);
 
@@ -105,6 +105,7 @@ export default async function ProductPage(
             {recommendations && recommendations.length > 0 && (
                 <div className={styles.recommendations}>
                     <Htag tag="h2">Так же советуем попробовать</Htag>
+                    
                     <div className={styles.recommendations_grid}>
                         {recommendations.map((rec) => (
                             <Link href={`/product/${rec.id}`} key={rec.id} className={styles.link}>
@@ -116,7 +117,8 @@ export default async function ProductPage(
                                         width={150}
                                         height={150}
                                     />
-                                    <P size="medium">{rec.title}</P>
+                                    <Htag tag='h1' className={styles.title}>{rec.title}</Htag>
+                                    <P size="medium" className={styles.description}>{rec.description}</P>
                                     <P size="large">
                                         Цена: <span className={styles.price}>{rec.price} РУБ.</span>
                                     </P>
