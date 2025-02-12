@@ -5,9 +5,10 @@
 }
 
 .reviewbox {
+	transition: all ease-in-out 300ms;
 	border-radius: 15px;
-	background-color: rgb(141 141 141 / 34.2%);
-	box-shadow: 15px 15px 10px -5px rgb(34 60 80 / 20%);
+	background-color: rgb(141 141 141 / 35%);
+	cursor: pointer;
 }
 
 .review {
@@ -20,4 +21,10 @@
 
 .review img {
 	border-radius: 50%;
+}
+
+.reviewbox:hover {
+	transform: scale(1.05);
+	background-color: rgba(141, 141, 141, 0.7);
+	box-shadow: 15px 15px 10px -5px rgb(34 60 80 / 20%);
 }
