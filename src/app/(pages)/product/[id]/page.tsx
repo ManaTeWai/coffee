@@ -2,17 +2,14 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import styles from './page.module.css';
-import { Htag, P, RatingState, PriceDisplay } from '@/components';
+import { Htag, P, RatingState } from '@/components';
 import { createClient } from '@supabase/supabase-js';
+
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL as string,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
 );
-
-type ProductPageProps = {
-    params: { id: string };
-};
 
 export async function generateMetadata(
     props: {
@@ -34,6 +31,8 @@ export async function generateMetadata(
     };
 }
 
+export const revalidate = 60;
+
 export async function generateStaticParams() {
     const { data: products, error } = await supabase.from('Products').select('id');
 
@@ -41,7 +40,8 @@ export async function generateStaticParams() {
         console.error('Ошибка загрузки продуктов или данные отсутствуют:', error);
         return [];
     }
-    return products?.map((product: { id: number }) => ({
+
+    return products.map((product) => ({
         id: product.id.toString(),
     }));
 }
@@ -81,7 +81,9 @@ export default async function ProductPage(
                 <div className={styles.description}>
                     <RatingState productId={product.id} />
                     <P size="medium">{product.description}</P>
-                    <PriceDisplay price={product.price} />
+                    <P size="large">
+                        Цена: <span className={styles.price}>{product.price} РУБ.</span>
+                    </P>
                 </div>
             </div>
             <div className={styles.some_desc}>

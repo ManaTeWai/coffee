@@ -12,6 +12,5 @@ export * from './Calculator/Calculator';
 export * from './Button/Button';
 export * from './Rating/RatingState';
 export * from './Rating/Rating';
-export * from './ProductContent/PriceDisplay';
 export * from './PriceList/PriceList';
 export * from './ReviewItem/ReviewItem';

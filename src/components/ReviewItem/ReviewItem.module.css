@@ -5,16 +5,17 @@
 }
 
 .reviewbox {
-	background-color: rgba(141, 141, 141, 0.342);
 	border-radius: 15px;
-	box-shadow: 15px 15px 10px -5px rgba(34, 60, 80, 0.2);
+	background-color: rgb(141 141 141 / 34.2%);
+	box-shadow: 15px 15px 10px -5px rgb(34 60 80 / 20%);
 }
 
 .review {
-	padding: 2% 5%;
 	display: flex;
-	gap: 20px;
 	align-items: center;
+
+	padding: 2% 5%;
+	gap: 20px;
 }
 
 .review img {
