@@ -19,14 +19,15 @@ const transporter = nodemailer.createTransport({
 
 export async function POST(req: Request) {
 	try {
-		const { name, phoneNumber, subject, message } = await req.json();
-		console.log('Полученный запрос:', { name, phoneNumber, subject, message });
+		const { name, phoneNumber, subject, message, source } = await req.json();
+		console.log('Полученный запрос:', { name, phoneNumber, subject, message, source });
 
 		const mailOptions = {
 			from: USER,
 			to: USER,
 			subject: `CoffeeTime - тема: ${subject}`,
 			html: `
+				<h1>Отправлено со страницы "${source}"</h1>
 				<h2>Обратная связь от: ${name}</h2>
 				<p>Номер телефона: <a href="tel:${phoneNumber}">${phoneNumber}</a></p>
 				<p>${message}</p>

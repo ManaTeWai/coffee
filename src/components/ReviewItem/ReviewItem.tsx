@@ -18,8 +18,8 @@ export const ReviewItem = ({ reviews }: Reviews) => {
 	return (
 		<div className={styles.reviews}>
 			{review.map((item, index) => (
-				<div className={styles.reviewbox}>
-					<div key={index} className={styles.review}>
+				<div className={styles.reviewbox} key={index}>
+					<div className={styles.review}>
 						<Image src={item.ImageType} width={100} height={100} alt='фото профиля' />
 						<div className={styles.text}>
 							<Htag tag="h1">{item.author}</Htag>
