@@ -92,4 +92,10 @@
 	.some_desc {
 		height: auto;
 	}
+
+	.recommendations_grid {
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+	}
 }
