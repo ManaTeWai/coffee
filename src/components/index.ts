@@ -14,3 +14,4 @@ export * from './Rating/RatingState';
 export * from './Rating/Rating';
 export * from './PriceList/PriceList';
 export * from './ReviewItem/ReviewItem';
+export * from './YandexMetrika/YandexMetrika';

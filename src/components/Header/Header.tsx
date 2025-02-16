@@ -4,6 +4,7 @@ import styles from './Header.module.css';
 import { useState, useRef, useEffect, type JSX } from 'react';
 import { HeaderProps } from './Header.Props';
 import Link from 'next/link';
+import { YandexMetrika } from '../';
 
 export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +28,7 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
 
 	return (
 		<div className={styles.header}>
+					<YandexMetrika/>
 			<div className={styles.menu}>
 				<ul className={styles.nav}>
 					<li className={styles.li}><Link href="/about">О нас</Link></li>
