@@ -22,7 +22,7 @@ export const ReviewItem = () => {
                 const { data, error } = await supabase
                     .from("Reviews")
                     .select("*")
-                    .order("id", { ascending: true })
+                    .order("id", { ascending: false });
 
                 if (error) {
                     console.error("Ошибка загрузки данных:", error)
