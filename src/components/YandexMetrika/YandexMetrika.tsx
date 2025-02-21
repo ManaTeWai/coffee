@@ -1,4 +1,5 @@
 import Script from 'next/script';
+import Image from 'next/image';
 
 export const YandexMetrika = () => {
     const isProduction = process.env.NEXT_PUBLIC_ENV === 'production';
@@ -28,7 +29,7 @@ export const YandexMetrika = () => {
                     />
                     <noscript>
                         <div>
-                            <img
+                            <Image
                                 src="https://mc.yandex.ru/watch/99932809"
                                 style={{ position: 'absolute', left: '-9999px' }}
                                 alt=""
