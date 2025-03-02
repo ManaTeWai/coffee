@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header, Footer } from "@/components";
-import styles from './page.module.css'
-
-const inter = Inter({ subsets: ["latin"] });
+import styles from './layout.module.css'
 
 export const metadata: Metadata = {
   title: "Кофе Тайм",
@@ -18,9 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={inter.className}>
+      <body className={styles.wrapper}>
         <Header />
-        <main className={styles.wrapper}>{children}</main>
+        <main className={styles.main}>{children}</main>
         <Footer />
       </body>
     </html>
