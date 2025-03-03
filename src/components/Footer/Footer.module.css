@@ -1,115 +1,139 @@
 .logo {
-  color: white !important;
+    color: white !important;
 
-  font-family: 'Brygada 1918', serif;
-  font-size: 50px !important;
-  font-weight: 400;
-  font-style: italic !important;
+    font-family: "Brygada 1918", serif;
+    font-size: 50px !important;
+    font-weight: 400;
+    font-style: italic !important;
 }
 
 .footerLogo {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .footer_cont {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .footer {
-  padding: 10px 15%;
+    padding: 10px 15%;
 
-  background-color: var(--primary-color);
+    background-color: var(--primary-color);
 }
 
 .footer_menu {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  justify-content: space-between;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
-  padding-top: 20px;
-  padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 .menu_header {
-  color: white !important;
+    color: white !important;
 }
 
 .menu {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .li {
-  margin-bottom: 10px;
-  padding: 0;
+    margin-bottom: 10px;
+    padding: 0;
 
-  list-style-type: none;
+    list-style-type: none;
 }
 
 .link {
-  transition: all ease-in-out 300ms;
-  text-decoration: none;
+    transition: all ease-in-out 300ms;
+    text-decoration: none;
 
-  color: var(--background-color);
+    color: var(--background-color);
 }
 
 .link:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .social {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .copyright {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
-  padding-top: 10px;
+    padding-top: 10px;
 
-  border-top: 1px solid var(--background-color);
+    border-top: 1px solid var(--background-color);
 }
 
 .copyright p {
-  color: var(--background-color) !important;
+    color: var(--background-color) !important;
 }
 
 .copyright .link {
-  transition: all ease-in-out 300ms;
-  text-decoration: none;
+    transition: all ease-in-out 300ms;
+    text-decoration: none;
 
-  color: var(--background-color);
+    color: var(--background-color);
 }
 
 .copyright .link:hover {
-  text-decoration: underline;
+    text-decoration: underline;
+}
+
+.socials_item {
+    display: block;
+    height: 2.5rem;
+    margin-right: 10px;
+    -webkit-transition: opacity 0.15s ease-in-out;
+    transition: opacity 0.15s ease-in-out;
+    width: 2.5rem;
+}
+
+.socials_item:last-child {
+    margin-right: 0;
+}
+
+.socials_item:hover {
+    opacity: 0.5;
+}
+
+.socials_item_icon {
+    fill: var(--background-color);
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 
 @media (width <=768px) {
-  .logo {
-    text-align: center;
-  }
+    .logo {
+        text-align: center;
+    }
 
-  .footer_menu {
-    align-items: center;
-    flex-direction: column;
-  }
+    .footer_menu {
+        align-items: center;
+        flex-direction: column;
+    }
 
-  .menu {
-    margin-bottom: 20px;
+    .menu {
+        margin-bottom: 20px;
 
-    text-align: center;
-  }
+        text-align: center;
+    }
 
-  .copyright {
-    align-items: center;
-    flex-direction: column;
+    .copyright {
+        align-items: center;
+        flex-direction: column;
 
-    text-align: center;
-  }
+        text-align: center;
+    }
 }
