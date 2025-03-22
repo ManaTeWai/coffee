@@ -19,11 +19,16 @@ export async function generateMetadata(
     const params = await props.params;
     const productId = parseInt(params.id, 10);
 
-    const { data: product } = await supabase
+    const { data: product, error: productError } = await supabase
         .from('Products')
         .select('*')
         .eq('id', productId)
         .single();
+
+    if (productError || !product) {
+        console.error('Ошибка загрузки продукта:', productError);
+        notFound();
+    }
 
     return {
         title: `Кофе Тайм || ${product?.title || 'Продукт не найден'}`,
@@ -105,7 +110,7 @@ export default async function ProductPage(
             {recommendations && recommendations.length > 0 && (
                 <div className={styles.recommendations}>
                     <Htag tag="h2">Так же советуем попробовать</Htag>
-                    
+
                     <div className={styles.recommendations_grid}>
                         {recommendations.map((rec) => (
                             <Link href={`/product/${rec.id}`} key={rec.id} className={styles.link}>
