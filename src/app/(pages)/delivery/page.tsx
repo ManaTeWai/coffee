@@ -13,7 +13,7 @@ export default function Delivery() {
 		<div className={styles.page_wrapper}>
 			<div className={styles.about_img}>
 				<Htag tag="h1">Способы доставки</Htag>
-				<Image width={380} height={280} alt='Фото' src='/img/deliver.png' />
+				<Image width={360} height={260} alt='Фото' src='/img/deliver.png' />
 			</div>
 			<P size='medium'>Мы заботимся о том, чтобы ваши любимые напитки и свежие десерты дошли до вас в идеальном состоянии. Для вашего удобства мы предлагаем несколько вариантов доставки:</P>
 			<ul>
