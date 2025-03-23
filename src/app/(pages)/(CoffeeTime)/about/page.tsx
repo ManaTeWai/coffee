@@ -36,7 +36,7 @@ export default function About() {
         <div className={styles.page_wrapper}>
             <div className={styles.about_img}>
                 <Htag tag='h1'>Приветствуем вас в CoffeeTime!</Htag>
-                <Image width={380} height={280} src='/img/bar.png' alt='Фото' />
+                <Image width={360} height={260} src='/img/bar.png' alt='Фото' />
             </div>
             <P size='medium'>
                 Наша кофейня — это не просто место, где можно насладиться
