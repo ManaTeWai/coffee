@@ -10,24 +10,24 @@ export const metadata: Metadata = {
 
 const slides = [
     {
-        imageUrl: "/img/bar.png",
-        title: "Бар",
+        imageUrl: "/img/machine.png",
+        title: "Чашка кофе",
+        height: "600px",
     },
     {
         imageUrl: "/img/cup.png",
         title: "Чашка кофе",
+        height: "600px",
     },
     {
         imageUrl: "/img/cup1.png",
         title: "Чашка кофе",
+        height: "600px",
     },
     {
         imageUrl: "/img/cup2.png",
         title: "Чашка кофе",
-    },
-    {
-        imageUrl: "/img/machine.png",
-        title: "Чашка кофе",
+        height: "600px",
     },
 ]
 

@@ -67,7 +67,7 @@
 }
 
 .about_slider_container {
-    width: 360px;
+    width: 800px;
     margin: auto;
 }
 
@@ -83,4 +83,9 @@
         flex-direction: column-reverse;
         justify-content: space-around;
     }
+
+    .about_slider_container {
+      width: 320px;
+      margin: auto;
+  }
 }
