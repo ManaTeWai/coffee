@@ -16,6 +16,7 @@
     "@mui/system": "^5.15.20",
     "@supabase/supabase-js": "^2.45.4",
     "@twa-dev/sdk": "^8.0.2",
+    "@vercel/speed-insights": "^1.2.0",
     "bcrypt": "^5.1.1",
     "chart.js": "^4.4.7",
     "classnames": "^2.5.1",

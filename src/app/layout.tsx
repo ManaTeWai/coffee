@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header, Footer } from "@/components";
 import styles from './layout.module.css'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "Кофе Тайм",
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body className={styles.wrapper}>
         <Header />
         <main className={styles.main}>{children}</main>
+        <SpeedInsights />
         <Footer />
       </body>
     </html>
