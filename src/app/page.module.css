@@ -1,69 +1,86 @@
 .title {
-  width: 350px;
+    width: 350px;
 
-  color: #fff;
+    color: #fff;
 
-  font-family: 'Brygada 1918', serif;
-  font-size: 40px;
-  font-weight: 400;
-  font-style: italic;
-  line-height: 50px;
+    font-family: "Brygada 1918", serif;
+    font-size: 40px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 50px;
 }
 
-.page_wrapper ul li{
-  margin-bottom: 10px;
-  margin-left: 20px;
+.page_wrapper ul li {
+    margin-bottom: 10px;
+    margin-left: 20px;
 }
 
 .page_wrapper ol li {
-  margin-bottom: 10px;
-  margin-left: 20px;
+    margin-bottom: 10px;
+    margin-left: 20px;
 }
 
 .page_wrapper h1 {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .page_wrapper .list {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .main_title {
-  font-size: 50px !important;
-  line-height: 50px !important;
+    font-size: 50px !important;
+    line-height: 50px !important;
 }
 
 .calculator_cont {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 .image_cont {
-  overflow: hidden;
+    overflow: hidden;
 
-  width: 100%;
-  height: 720px;
+    width: 100%;
+    height: 720px;
 
-  border-radius: 16px;
+    border-radius: 16px;
 }
 
 .banner {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about_img {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.about_img img {
+    border-radius: 16px;
+}
+
+.about_slider_container {
+    width: 360px;
+    margin: auto;
 }
 
 @media (width <= 768px) {
-  .wrapper {
-    margin-top: 60px;
-    padding: 0 5%;
-  }
-  
-  .calculator_cont {
-    display: flex;
-    align-items: center;
-    flex-direction: column-reverse;
-    justify-content: space-around;
-  }
+    .wrapper {
+        margin-top: 60px;
+        padding: 0 5%;
+    }
+
+    .calculator_cont {
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
+        justify-content: space-around;
+    }
 }
