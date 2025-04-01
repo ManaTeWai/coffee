@@ -3,7 +3,7 @@ import { MetadataRoute } from "next";
 import { createClient } from "@supabase/supabase-js";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://www.coffee-time.online/";
+  const baseUrl = "https://www.coffee-time.online";
 
   // Статические пути
   const staticPages = [
