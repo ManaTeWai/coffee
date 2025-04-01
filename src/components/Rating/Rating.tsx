@@ -5,12 +5,7 @@ import { RatingProps } from './Rating.Props';
 import styles from './Rating.module.css';
 import StarIcon from './star.svg';
 import cn from 'classnames';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(
-	process.env.NEXT_PUBLIC_SUPABASE_URL as string,
-	process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
-);
+import { supabase } from "@/utils/supabase";
 
 export const Rating = ({ rating, setRating, productId, isEditable = false, ...props }: RatingProps): JSX.Element => {
 	const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));

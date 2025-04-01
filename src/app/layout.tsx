@@ -7,8 +7,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.coffee-time.online/"),
   authors: [{ name: "ManaTeWai", url: "https://t.me/manatewai" }],
-  themeColor: "#ffffff",
-  manifest: "/site.webmanifest",
   icons: {
     icon: "/favicon.ico",
     apple: "/favicon.ico",
@@ -37,6 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
+      <head>
+        <link rel="manifest" href="/site.webmanifest" />
+      </head>
       <body className={styles.wrapper}>
         <Header />
         <main className={styles.main}>{children}</main>

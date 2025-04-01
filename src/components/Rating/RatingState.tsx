@@ -2,14 +2,7 @@
 
 import { useState, useEffect, type JSX } from 'react';
 import { Rating } from './Rating';
-import { createClient } from '@supabase/supabase-js';
-
-
-// Создайте клиент Supabase
-const supabase = createClient(
-	process.env.NEXT_PUBLIC_SUPABASE_URL as string,
-	process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
-);
+import { supabase } from "@/utils/supabase";
 
 
 export const RatingState = ({ productId }: { productId: number }): JSX.Element => {
