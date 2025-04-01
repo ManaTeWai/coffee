@@ -125,14 +125,6 @@ export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
           <P size="large">
             © 2022 - {format(new Date(), "yyyy")} КофеТайм. Все права защищены.
           </P>
-          <Link href="https://webmaster.yandex.ru/siteinfo/?site=https://www.coffee-time.online">
-            <img
-              width="88"
-              height="31"
-              alt=""
-              src="https://yandex.ru/cycounter?https://www.coffee-time.online&theme=dark&lang=en"
-            />
-          </Link>
           <P size="large">
             <Link className={styles.link} href="/policy">
               Политика конфиденциальности
