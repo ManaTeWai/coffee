@@ -1,5 +1,11 @@
 import { Slider, Htag, P, DynamicCoffeeCardLoader } from '@/components'
 import styles from './page.module.css'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "Кофе Тайм || Главная",
+};
+
 
 const slides = [
 	{

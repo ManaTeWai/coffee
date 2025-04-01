@@ -7,6 +7,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 export const metadata: Metadata = {
   title: "Кофе Тайм",
   description: "Coffee to portfolio",
+  other: {
+    "yandex-verification": "72e1624e4db0db19",
+  },
 };
 
 export default function RootLayout({
